@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Top Produits AliExpress | Sélection Premium</title>
+    <title>Top Produits AliExpress | Affiliation Premium</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #ff4747;
-            --secondary: #3a3a3a;
-            --accent: #00c3ff;
+            --primary: #FF6B00; /* Orange AliExpress */
+            --secondary: #2A2A2A;
+            --accent: #00AAFF;
             --light: #f8f9fa;
             --dark: #212529;
             --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            --gradient: linear-gradient(135deg, #ff4747 0%, #ff6b6b 100%);
+            --gradient: linear-gradient(135deg, #FF6B00 0%, #FF8F00 100%);
         }
 
         * {
@@ -59,7 +59,7 @@
 
         .logo i {
             margin-right: 0.5rem;
-            color: var(--accent);
+            color: white;
         }
 
         .nav-links {
@@ -94,32 +94,10 @@
             width: 100%;
         }
 
-        .header-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient);
-            z-index: -1;
-        }
-
-        .header-bg::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://i.imgur.com/JjZQZQq.png') no-repeat;
-            background-size: cover;
-            opacity: 0.05;
-        }
-
         /* Hero Section */
         .hero {
             height: 500px;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://i.imgur.com/9Q9Q9Q9.jpg') no-repeat center center/cover;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://media.istockphoto.com/id/1365436662/fr/photo/bo%C3%AEte-demballage-en-carton-ouverte-avec-des-%C3%A9l%C3%A9ments-dachat-en-ligne.jpg?s=2048x2048&w=is&k=20&c=5s0QvYQ5w9Z5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q=') no-repeat center center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -159,33 +137,18 @@
             text-decoration: none;
             cursor: pointer;
             transition: var(--transition);
-            box-shadow: 0 4px 15px rgba(255, 71, 71, 0.4);
+            box-shadow: 0 4px 15px rgba(255, 107, 0, 0.4);
             position: relative;
             overflow: hidden;
         }
 
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(255, 71, 71, 0.6);
+            box-shadow: 0 6px 20px rgba(255, 107, 0, 0.6);
         }
 
         .btn:active {
             transform: translateY(1px);
-        }
-
-        .btn::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 100%);
-            transition: var(--transition);
-        }
-
-        .btn:hover::after {
-            opacity: 0;
         }
 
         /* Products Section */
@@ -222,8 +185,20 @@
 
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
+        }
+
+        @media (min-width: 1200px) {
+            .products-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         .product-card {
@@ -233,6 +208,8 @@
             box-shadow: var(--shadow);
             transition: var(--transition);
             position: relative;
+            display: flex;
+            flex-direction: column;
         }
 
         .product-card:hover {
@@ -255,12 +232,16 @@
         }
 
         .product-image {
-            height: 250px;
-            overflow: hidden;
+            height: 0;
+            padding-bottom: 100%; /* Carré parfait (1:1) */
             position: relative;
+            overflow: hidden;
         }
 
         .product-image img {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -273,6 +254,9 @@
 
         .product-info {
             padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .product-category {
@@ -288,6 +272,7 @@
             margin-bottom: 0.8rem;
             color: var(--secondary);
             font-weight: 700;
+            flex: 1;
         }
 
         .product-description {
@@ -301,7 +286,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-top: 1rem;
+            margin-top: auto;
         }
 
         .price {
@@ -326,7 +311,7 @@
             font-weight: 600;
         }
 
-        .add-to-cart {
+        .see-on-ali {
             background: var(--gradient);
             color: white;
             border: none;
@@ -338,11 +323,14 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            text-decoration: none;
+            text-align: center;
+            justify-content: center;
         }
 
-        .add-to-cart:hover {
-            background: linear-gradient(135deg, #ff6b6b 0%, #ff4747 100%);
-            box-shadow: 0 4px 15px rgba(255, 71, 71, 0.4);
+        .see-on-ali:hover {
+            background: linear-gradient(135deg, #FF8F00 0%, #FF6B00 100%);
+            box-shadow: 0 4px 15px rgba(255, 107, 0, 0.4);
         }
 
         .product-actions {
@@ -552,6 +540,37 @@
             font-size: 0.9rem;
         }
 
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 107, 0, 0.4);
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 999;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -561,15 +580,6 @@
             to {
                 opacity: 1;
                 transform: translateY(0);
-            }
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
             }
         }
 
@@ -606,11 +616,10 @@
 </head>
 <body>
     <header>
-        <div class="header-bg"></div>
         <div class="header-content">
             <div class="logo">
-                <i class="fas fa-rocket"></i>
-                <span>AliTop</span>
+                <i class="fas fa-shopping-bag"></i>
+                <span>AliAffiliate</span>
             </div>
             <nav class="nav-links">
                 <a href="#">Accueil</a>
@@ -624,42 +633,40 @@
 
     <section class="hero">
         <div class="hero-content">
-            <h1>Découvrez nos produits phares AliExpress</h1>
-            <p>Une sélection exclusive d'articles tendance à des prix imbattables</p>
-            <a href="#products" class="btn">Explorer les produits</a>
+            <h1>Meilleurs Produits AliExpress</h1>
+            <p>Découvrez notre sélection exclusive d'articles tendance avec nos liens d'affiliation</p>
+            <a href="#products" class="btn">Voir les produits</a>
         </div>
     </section>
 
     <section class="products" id="products">
         <div class="section-title">
-            <h2>Nos Meilleurs Produits</h2>
+            <h2>Nos Recommandations</h2>
         </div>
         <div class="products-grid">
             <!-- Produit 1 -->
             <div class="product-card">
                 <div class="product-badge">Nouveau</div>
                 <div class="product-image">
-                    <img src="https://i.imgur.com/JjZQZQq.jpg" alt="Montre intelligente">
+                    <img src="https://media.istockphoto.com/id/1316145932/fr/photo/montre-intelligente-avec-%C3%A9cran-tactile.jpg?s=1024x1024&w=is&k=20&c=5s0QvYQ5w9Z5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q=" alt="Montre intelligente">
                 </div>
                 <div class="product-info">
                     <span class="product-category">Électronique</span>
                     <h3 class="product-title">Montre Intelligente 2024</h3>
-                    <p class="product-description">Montre connectée avec écran tactile, surveillance de la fréquence cardiaque, étanche et longue durée de batterie.</p>
+                    <p class="product-description">Écran tactile 1.7", surveillance du rythme cardiaque, étanche IP68, batterie 7 jours.</p>
                     <div class="product-price">
                         <div>
                             <span class="price">€39.99</span>
                             <span class="old-price">€79.99</span>
                             <span class="discount">-50%</span>
                         </div>
-                        <button class="add-to-cart">
-                            <i class="fas fa-shopping-cart"></i>
-                            Acheter
-                        </button>
                     </div>
+                    <a href="https://aliexpress.com" class="see-on-ali" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Voir sur AliExpress
+                    </a>
                     <div class="product-actions">
                         <button class="action-btn"><i class="far fa-heart"></i></button>
-                        <button class="action-btn"><i class="fas fa-exchange-alt"></i></button>
-                        <button class="action-btn"><i class="far fa-eye"></i></button>
+                        <button class="action-btn"><i class="fas fa-share-alt"></i></button>
                     </div>
                 </div>
             </div>
@@ -668,27 +675,25 @@
             <div class="product-card">
                 <div class="product-badge">Promo</div>
                 <div class="product-image">
-                    <img src="https://i.imgur.com/9Q9Q9Q9.jpg" alt="Casque Bluetooth">
+                    <img src="https://media.istockphoto.com/id/1342392000/fr/photo/casque-sans-fil-avec-r%C3%A9duction-de-bruit.jpg?s=1024x1024&w=is&k=20&c=5s0QvYQ5w9Z5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q=" alt="Casque Bluetooth">
                 </div>
                 <div class="product-info">
                     <span class="product-category">Audio</span>
                     <h3 class="product-title">Casque Bluetooth ANC</h3>
-                    <p class="product-description">Casque sans fil avec réduction active du bruit, son haute qualité et autonomie de 30 heures.</p>
+                    <p class="product-description">Réduction active du bruit, son HD, autonomie 30h, micro intégré.</p>
                     <div class="product-price">
                         <div>
                             <span class="price">€59.99</span>
                             <span class="old-price">€129.99</span>
                             <span class="discount">-54%</span>
                         </div>
-                        <button class="add-to-cart">
-                            <i class="fas fa-shopping-cart"></i>
-                            Acheter
-                        </button>
                     </div>
+                    <a href="https://aliexpress.com" class="see-on-ali" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Voir sur AliExpress
+                    </a>
                     <div class="product-actions">
                         <button class="action-btn"><i class="far fa-heart"></i></button>
-                        <button class="action-btn"><i class="fas fa-exchange-alt"></i></button>
-                        <button class="action-btn"><i class="far fa-eye"></i></button>
+                        <button class="action-btn"><i class="fas fa-share-alt"></i></button>
                     </div>
                 </div>
             </div>
@@ -697,27 +702,25 @@
             <div class="product-card">
                 <div class="product-badge">Top</div>
                 <div class="product-image">
-                    <img src="https://i.imgur.com/ZzQzQzQ.jpg" alt="Drone">
+                    <img src="https://media.istockphoto.com/id/1367016617/fr/photo/drone-de-course-avec-cam%C3%A9ra-hd.jpg?s=1024x1024&w=is&k=20&c=5s0QvYQ5w9Z5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q=" alt="Drone">
                 </div>
                 <div class="product-info">
                     <span class="product-category">Drone</span>
                     <h3 class="product-title">Drone 4K avec Caméra</h3>
-                    <p class="product-description">Drone pliable avec caméra 4K, stabilisation, contrôle par smartphone et retour automatique.</p>
+                    <p class="product-description">Caméra 4K, stabilisation 3 axes, contrôle par smartphone, retour automatique.</p>
                     <div class="product-price">
                         <div>
                             <span class="price">€129.99</span>
                             <span class="old-price">€299.99</span>
                             <span class="discount">-57%</span>
                         </div>
-                        <button class="add-to-cart">
-                            <i class="fas fa-shopping-cart"></i>
-                            Acheter
-                        </button>
                     </div>
+                    <a href="https://aliexpress.com" class="see-on-ali" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Voir sur AliExpress
+                    </a>
                     <div class="product-actions">
                         <button class="action-btn"><i class="far fa-heart"></i></button>
-                        <button class="action-btn"><i class="fas fa-exchange-alt"></i></button>
-                        <button class="action-btn"><i class="far fa-eye"></i></button>
+                        <button class="action-btn"><i class="fas fa-share-alt"></i></button>
                     </div>
                 </div>
             </div>
@@ -726,27 +729,25 @@
             <div class="product-card">
                 <div class="product-badge">Vente Flash</div>
                 <div class="product-image">
-                    <img src="https://i.imgur.com/YyYyYyY.jpg" alt="Projecteur">
+                    <img src="https://media.istockphoto.com/id/1355683470/fr/photo/projecteur-portable-mini-led.jpg?s=1024x1024&w=is&k=20&c=5s0QvYQ5w9Z5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q=" alt="Projecteur">
                 </div>
                 <div class="product-info">
                     <span class="product-category">Home Cinéma</span>
                     <h3 class="product-title">Projecteur Full HD 1080P</h3>
-                    <p class="product-description">Projecteur portable avec WiFi, Bluetooth, compatible Netflix/YouTube, 200 pouces d'image.</p>
+                    <p class="product-description">Résolution native 1080p, WiFi, Bluetooth, compatible Netflix/YouTube.</p>
                     <div class="product-price">
                         <div>
                             <span class="price">€89.99</span>
                             <span class="old-price">€199.99</span>
                             <span class="discount">-55%</span>
                         </div>
-                        <button class="add-to-cart">
-                            <i class="fas fa-shopping-cart"></i>
-                            Acheter
-                        </button>
                     </div>
+                    <a href="https://aliexpress.com" class="see-on-ali" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Voir sur AliExpress
+                    </a>
                     <div class="product-actions">
                         <button class="action-btn"><i class="far fa-heart"></i></button>
-                        <button class="action-btn"><i class="fas fa-exchange-alt"></i></button>
-                        <button class="action-btn"><i class="far fa-eye"></i></button>
+                        <button class="action-btn"><i class="fas fa-share-alt"></i></button>
                     </div>
                 </div>
             </div>
@@ -754,27 +755,25 @@
             <!-- Produit 5 -->
             <div class="product-card">
                 <div class="product-image">
-                    <img src="https://i.imgur.com/XxXxXxX.jpg" alt="Brosse à dents électrique">
+                    <img src="https://media.istockphoto.com/id/1320119356/fr/photo/brosse-%C3%A0-dents-%C3%A9lectrique-blanche.jpg?s=1024x1024&w=is&k=20&c=5s0QvYQ5w9Z5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q=" alt="Brosse à dents électrique">
                 </div>
                 <div class="product-info">
                     <span class="product-category">Santé & Beauté</span>
                     <h3 class="product-title">Brosse à Dents Électrique</h3>
-                    <p class="product-description">4 modes de nettoyage, étanche IPX7, jusqu'à 30 jours d'autonomie avec charge USB.</p>
+                    <p class="product-description">4 modes de nettoyage, étanche IPX7, autonomie 30 jours, charge USB.</p>
                     <div class="product-price">
                         <div>
                             <span class="price">€19.99</span>
                             <span class="old-price">€49.99</span>
                             <span class="discount">-60%</span>
                         </div>
-                        <button class="add-to-cart">
-                            <i class="fas fa-shopping-cart"></i>
-                            Acheter
-                        </button>
                     </div>
+                    <a href="https://aliexpress.com" class="see-on-ali" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Voir sur AliExpress
+                    </a>
                     <div class="product-actions">
                         <button class="action-btn"><i class="far fa-heart"></i></button>
-                        <button class="action-btn"><i class="fas fa-exchange-alt"></i></button>
-                        <button class="action-btn"><i class="far fa-eye"></i></button>
+                        <button class="action-btn"><i class="fas fa-share-alt"></i></button>
                     </div>
                 </div>
             </div>
@@ -783,27 +782,25 @@
             <div class="product-card">
                 <div class="product-badge">Économie</div>
                 <div class="product-image">
-                    <img src="https://i.imgur.com/WwWwWwW.jpg" alt="Lampe LED">
+                    <img src="https://media.istockphoto.com/id/1322277516/fr/photo/ampoule-connect%C3%A9e-intelligente-avec-changement-de-couleur.jpg?s=1024x1024&w=is&k=20&c=5s0QvYQ5w9Z5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q=" alt="Lampe LED">
                 </div>
                 <div class="product-info">
                     <span class="product-category">Maison</span>
                     <h3 class="product-title">Lampe LED Intelligente</h3>
-                    <p class="product-description">Contrôle WiFi, 16 millions de couleurs, programmation, compatible Alexa/Google Home.</p>
+                    <p class="product-description">16 millions de couleurs, contrôle WiFi, programmation, compatible Alexa.</p>
                     <div class="product-price">
                         <div>
                             <span class="price">€12.99</span>
                             <span class="old-price">€29.99</span>
                             <span class="discount">-57%</span>
                         </div>
-                        <button class="add-to-cart">
-                            <i class="fas fa-shopping-cart"></i>
-                            Acheter
-                        </button>
                     </div>
+                    <a href="https://aliexpress.com" class="see-on-ali" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Voir sur AliExpress
+                    </a>
                     <div class="product-actions">
                         <button class="action-btn"><i class="far fa-heart"></i></button>
-                        <button class="action-btn"><i class="fas fa-exchange-alt"></i></button>
-                        <button class="action-btn"><i class="far fa-eye"></i></button>
+                        <button class="action-btn"><i class="fas fa-share-alt"></i></button>
                     </div>
                 </div>
             </div>
@@ -812,27 +809,25 @@
             <div class="product-card">
                 <div class="product-badge">Nouveau</div>
                 <div class="product-image">
-                    <img src="https://i.imgur.com/VvVvVvV.jpg" alt="Power Bank">
+                    <img src="https://media.istockphoto.com/id/1335244377/fr/photo/batterie-externe-de-charge-rapide.jpg?s=1024x1024&w=is&k=20&c=5s0QvYQ5w9Z5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q=" alt="Power Bank">
                 </div>
                 <div class="product-info">
                     <span class="product-category">Accessoires</span>
                     <h3 class="product-title">Power Bank 30000mAh</h3>
-                    <p class="product-description">Batterie externe avec 4 ports USB, charge rapide PD 18W, pour tous smartphones.</p>
+                    <p class="product-description">4 ports USB, charge rapide PD 18W, pour tous smartphones et tablettes.</p>
                     <div class="product-price">
                         <div>
                             <span class="price">€29.99</span>
                             <span class="old-price">€59.99</span>
                             <span class="discount">-50%</span>
                         </div>
-                        <button class="add-to-cart">
-                            <i class="fas fa-shopping-cart"></i>
-                            Acheter
-                        </button>
                     </div>
+                    <a href="https://aliexpress.com" class="see-on-ali" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Voir sur AliExpress
+                    </a>
                     <div class="product-actions">
                         <button class="action-btn"><i class="far fa-heart"></i></button>
-                        <button class="action-btn"><i class="fas fa-exchange-alt"></i></button>
-                        <button class="action-btn"><i class="far fa-eye"></i></button>
+                        <button class="action-btn"><i class="fas fa-share-alt"></i></button>
                     </div>
                 </div>
             </div>
@@ -840,27 +835,25 @@
             <!-- Produit 8 -->
             <div class="product-card">
                 <div class="product-image">
-                    <img src="https://i.imgur.com/UuUuUuU.jpg" alt="Clavier mécanique">
+                    <img src="https://media.istockphoto.com/id/1356497292/fr/photo/clavier-gaming-m%C3%A9canique-rgb.jpg?s=1024x1024&w=is&k=20&c=5s0QvYQ5w9Z5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q=" alt="Clavier mécanique">
                 </div>
                 <div class="product-info">
                     <span class="product-category">Gaming</span>
                     <h3 class="product-title">Clavier Mécanique RGB</h3>
-                    <p class="product-description">Clavier gaming avec switches bleus, rétroéclairage RGB personnalisable, anti-ghosting.</p>
+                    <p class="product-description">Switches bleus, rétroéclairage RGB personnalisable, anti-ghosting.</p>
                     <div class="product-price">
                         <div>
                             <span class="price">€45.99</span>
                             <span class="old-price">€89.99</span>
                             <span class="discount">-49%</span>
                         </div>
-                        <button class="add-to-cart">
-                            <i class="fas fa-shopping-cart"></i>
-                            Acheter
-                        </button>
                     </div>
+                    <a href="https://aliexpress.com" class="see-on-ali" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Voir sur AliExpress
+                    </a>
                     <div class="product-actions">
                         <button class="action-btn"><i class="far fa-heart"></i></button>
-                        <button class="action-btn"><i class="fas fa-exchange-alt"></i></button>
-                        <button class="action-btn"><i class="far fa-eye"></i></button>
+                        <button class="action-btn"><i class="fas fa-share-alt"></i></button>
                     </div>
                 </div>
             </div>
@@ -869,7 +862,7 @@
             <div class="product-card">
                 <div class="product-badge">Meilleur vente</div>
                 <div class="product-image">
-                    <img src="https://i.imgur.com/TtTtTtT.jpg" alt="Smartphone">
+                    <img src="https://media.istockphoto.com/id/1366371902/fr/photo/smartphone-moderne-avec-%C3%A9cran-large.jpg?s=1024x1024&w=is&k=20&c=5s0QvYQ5w9Z5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q=" alt="Smartphone">
                 </div>
                 <div class="product-info">
                     <span class="product-category">Téléphonie</span>
@@ -881,15 +874,13 @@
                             <span class="old-price">€299.99</span>
                             <span class="discount">-40%</span>
                         </div>
-                        <button class="add-to-cart">
-                            <i class="fas fa-shopping-cart"></i>
-                            Acheter
-                        </button>
                     </div>
+                    <a href="https://aliexpress.com" class="see-on-ali" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Voir sur AliExpress
+                    </a>
                     <div class="product-actions">
                         <button class="action-btn"><i class="far fa-heart"></i></button>
-                        <button class="action-btn"><i class="fas fa-exchange-alt"></i></button>
-                        <button class="action-btn"><i class="far fa-eye"></i></button>
+                        <button class="action-btn"><i class="fas fa-share-alt"></i></button>
                     </div>
                 </div>
             </div>
@@ -898,27 +889,79 @@
             <div class="product-card">
                 <div class="product-badge">Limitée</div>
                 <div class="product-image">
-                    <img src="https://i.imgur.com/SsSsSsS.jpg" alt="Montre intelligente">
+                    <img src="https://media.istockphoto.com/id/1355683470/fr/photo/projecteur-portable-mini-led.jpg?s=1024x1024&w=is&k=20&c=5s0QvYQ5w9Z5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q=" alt="Montre intelligente">
                 </div>
                 <div class="product-info">
                     <span class="product-category">Mode</span>
                     <h3 class="product-title">Montre Sport Élégante</h3>
-                    <p class="product-description">Montre connectée avec écran AMOLED, suivi d'activité, étanche 5ATM, 10 jours d'autonomie.</p>
+                    <p class="product-description">Écran AMOLED, suivi d'activité, étanche 5ATM, autonomie 10 jours.</p>
                     <div class="product-price">
                         <div>
                             <span class="price">€69.99</span>
                             <span class="old-price">€149.99</span>
                             <span class="discount">-53%</span>
                         </div>
-                        <button class="add-to-cart">
-                            <i class="fas fa-shopping-cart"></i>
-                            Acheter
-                        </button>
                     </div>
+                    <a href="https://aliexpress.com" class="see-on-ali" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Voir sur AliExpress
+                    </a>
                     <div class="product-actions">
                         <button class="action-btn"><i class="far fa-heart"></i></button>
-                        <button class="action-btn"><i class="fas fa-exchange-alt"></i></button>
-                        <button class="action-btn"><i class="far fa-eye"></i></button>
+                        <button class="action-btn"><i class="fas fa-share-alt"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 11 -->
+            <div class="product-card">
+                <div class="product-badge">Nouveau</div>
+                <div class="product-image">
+                    <img src="https://media.istockphoto.com/id/1356497292/fr/photo/clavier-gaming-m%C3%A9canique-rgb.jpg?s=1024x1024&w=is&k=20&c=5s0QvYQ5w9Z5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q=" alt="Souris gaming">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Gaming</span>
+                    <h3 class="product-title">Souris Gaming RGB</h3>
+                    <p class="product-description">16000 DPI, 7 boutons programmables, rétroéclairage RGB, design ergonomique.</p>
+                    <div class="product-price">
+                        <div>
+                            <span class="price">€32.99</span>
+                            <span class="old-price">€59.99</span>
+                            <span class="discount">-45%</span>
+                        </div>
+                    </div>
+                    <a href="https://aliexpress.com" class="see-on-ali" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Voir sur AliExpress
+                    </a>
+                    <div class="product-actions">
+                        <button class="action-btn"><i class="far fa-heart"></i></button>
+                        <button class="action-btn"><i class="fas fa-share-alt"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 12 -->
+            <div class="product-card">
+                <div class="product-badge">Promo</div>
+                <div class="product-image">
+                    <img src="https://media.istockphoto.com/id/1366371902/fr/photo/smartphone-moderne-avec-%C3%A9cran-large.jpg?s=1024x1024&w=is&k=20&c=5s0QvYQ5w9Z5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q=" alt="Écouteurs sans fil">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Audio</span>
+                    <h3 class="product-title">Écouteurs Sans Fil</h3>
+                    <p class="product-description">Bluetooth 5.0, réduction de bruit, autonomie 8h, étanche IPX5, charge rapide.</p>
+                    <div class="product-price">
+                        <div>
+                            <span class="price">€27.99</span>
+                            <span class="old-price">€49.99</span>
+                            <span class="discount">-44%</span>
+                        </div>
+                    </div>
+                    <a href="https://aliexpress.com" class="see-on-ali" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Voir sur AliExpress
+                    </a>
+                    <div class="product-actions">
+                        <button class="action-btn"><i class="far fa-heart"></i></button>
+                        <button class="action-btn"><i class="fas fa-share-alt"></i></button>
                     </div>
                 </div>
             </div>
@@ -946,10 +989,10 @@
             </div>
             <div class="feature-card">
                 <div class="feature-icon">
-                    <i class="fas fa-headset"></i>
+                    <i class="fas fa-percentage"></i>
                 </div>
-                <h3 class="feature-title">Support 24/7</h3>
-                <p class="feature-description">Notre équipe est disponible pour répondre à vos questions à tout moment via chat, email ou téléphone.</p>
+                <h3 class="feature-title">Meilleurs Prix</h3>
+                <p class="feature-description">Nous sélectionnons les meilleures offres et promotions pour vous garantir les prix les plus bas du marché.</p>
             </div>
         </div>
     </section>
@@ -968,8 +1011,8 @@
     <footer>
         <div class="footer-container">
             <div class="footer-col">
-                <h3>AliTop</h3>
-                <p>Votre destination pour les meilleurs produits AliExpress. Qualité, prix et service garantis.</p>
+                <h3>AliAffiliate</h3>
+                <p>Votre plateforme d'affiliation pour les meilleurs produits AliExpress. Qualité, prix et service garantis.</p>
                 <div class="social-links">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
@@ -1001,105 +1044,70 @@
                 <h3>Informations</h3>
                 <ul>
                     <li><a href="#">À propos</a></li>
-                    <li><a href="#">Livraison</a></li>
-                    <li><a href="#">Politique de retour</a></li>
-                    <li><a href="#">Conditions générales</a></li>
                     <li><a href="#">Politique de confidentialité</a></li>
+                    <li><a href="#">Conditions d'utilisation</a></li>
+                    <li><a href="#">Politique d'affiliation</a></li>
+                    <li><a href="#">Contactez-nous</a></li>
                 </ul>
             </div>
         </div>
         <div class="copyright">
-            <p>&copy; 2024 AliTop. Tous droits réservés.</p>
+            <p>&copy; 2024 AliAffiliate. Tous droits réservés. Ce site contient des liens d'affiliation.</p>
         </div>
     </footer>
+
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
 
     <script>
         // Animation au défilement
         document.addEventListener('DOMContentLoaded', function() {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animate');
-                    }
+            // Animation des cartes produits
+            const animateCards = () => {
+                const cards = document.querySelectorAll('.product-card, .feature-card');
+                cards.forEach(card => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    card.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
                 });
-            }, {
-                threshold: 0.1
-            });
 
-            document.querySelectorAll('.product-card, .feature-card').forEach(card => {
-                observer.observe(card);
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                card.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-            });
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }
+                    });
+                }, { threshold: 0.1 });
 
-            // Animation lorsqu'un élément devient visible
-            const handleIntersection = (entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
+                cards.forEach(card => observer.observe(card));
             };
 
-            const cardObserver = new IntersectionObserver(handleIntersection);
-            document.querySelectorAll('.product-card, .feature-card').forEach(card => {
-                cardObserver.observe(card);
-            });
+            animateCards();
 
             // Bouton retour en haut
-            const backToTopBtn = document.createElement('div');
-            backToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
-            backToTopBtn.style.position = 'fixed';
-            backToTopBtn.style.bottom = '30px';
-            backToTopBtn.style.right = '30px';
-            backToTopBtn.style.width = '50px';
-            backToTopBtn.style.height = '50px';
-            backToTopBtn.style.backgroundColor = 'var(--primary)';
-            backToTopBtn.style.color = 'white';
-            backToTopBtn.style.borderRadius = '50%';
-            backToTopBtn.style.display = 'flex';
-            backToTopBtn.style.alignItems = 'center';
-            backToTopBtn.style.justifyContent = 'center';
-            backToTopBtn.style.cursor = 'pointer';
-            backToTopBtn.style.boxShadow = '0 4px 15px rgba(255, 71, 71, 0.4)';
-            backToTopBtn.style.transition = 'all 0.3s ease';
-            backToTopBtn.style.opacity = '0';
-            backToTopBtn.style.visibility = 'hidden';
-            backToTopBtn.style.zIndex = '999';
-            document.body.appendChild(backToTopBtn);
+            const backToTop = document.querySelector('.back-to-top');
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
 
-            backToTopBtn.addEventListener('click', () => {
+            backToTop.addEventListener('click', () => {
                 window.scrollTo({
                     top: 0,
                     behavior: 'smooth'
                 });
             });
 
-            window.addEventListener('scroll', () => {
-                if (window.pageYOffset > 300) {
-                    backToTopBtn.style.opacity = '1';
-                    backToTopBtn.style.visibility = 'visible';
-                } else {
-                    backToTopBtn.style.opacity = '0';
-                    backToTopBtn.style.visibility = 'hidden';
-                }
-            });
-
-            // Animation des boutons "Ajouter au panier"
-            document.querySelectorAll('.add-to-cart').forEach(button => {
+            // Animation des boutons "Voir sur AliExpress"
+            document.querySelectorAll('.see-on-ali').forEach(button => {
                 button.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    // Animation
-                    this.innerHTML = '<i class="fas fa-check"></i> Ajouté';
-                    this.style.backgroundColor = '#4CAF50';
-                    
-                    setTimeout(() => {
-                        this.innerHTML = '<i class="fas fa-shopping-cart"></i> Acheter';
-                        this.style.backgroundColor = '';
-                    }, 2000);
+                    // Vous pouvez ajouter ici un suivi d'affiliation si nécessaire
+                    console.log('Lien d\'affiliation cliqué:', this.href);
                 });
             });
         });
