@@ -3,326 +3,503 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gagnez l'un des 5 cadeaux exclusifs !</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Gagnez des Cadeaux Exceptionnels !</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Reset et styles de base */
+        :root {
+            --primary: #6c5ce7;
+            --secondary: #a29bfe;
+            --accent: #fd79a8;
+            --light: #f8f9fa;
+            --dark: #2d3436;
+            --success: #00b894;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body {
-            font-family: 'Poppins', sans-serif;
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            color: #333;
-            line-height: 1.6;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
-        
-        /* En-tête */
-        header {
-            background: linear-gradient(90deg, #ff7e5f, #feb47b);
-            color: white;
+
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+            padding: 40px;
             text-align: center;
-            padding: 2rem 1rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
-        
+
         h1 {
+            color: var(--primary);
+            margin-bottom: 20px;
             font-size: 2.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+            font-weight: 800;
+            background: linear-gradient(to right, #6c5ce7, #fd79a8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
+
+        .subtitle {
+            color: var(--dark);
+            margin-bottom: 30px;
+            font-size: 1.2rem;
+            opacity: 0.8;
         }
-        
-        /* Section cadeaux */
-        .gifts-section {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-            text-align: center;
-        }
-        
-        .gifts-container {
+
+        .prizes-container {
             position: relative;
             height: 400px;
-            overflow: hidden;
-            margin-bottom: 2rem;
-            border-radius: 10px;
-            background: white;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            margin: 40px 0;
+            perspective: 1000px;
         }
-        
-        .gift {
+
+        .prize-card {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            opacity: 0;
-            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            padding: 30px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            padding: 2rem;
-            transform: translateX(100%);
+            justify-content: center;
+            transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            opacity: 0;
+            transform: translateX(100%) rotateY(30deg);
+            backface-visibility: hidden;
         }
-        
-        .gift.active {
+
+        .prize-card.active {
             opacity: 1;
-            transform: translateX(0);
+            transform: translateX(0) rotateY(0);
+            z-index: 10;
         }
-        
-        .gift.exit {
-            transform: translateX(-100%);
+
+        .prize-card.exiting {
+            transform: translateX(-100%) rotateY(-30deg);
+            opacity: 0;
         }
-        
-        .gift img {
-            max-width: 200px;
-            max-height: 200px;
-            margin-bottom: 1.5rem;
+
+        .prize-image {
+            width: 200px;
+            height: 200px;
             object-fit: contain;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
         }
-        
-        .gift h3 {
+
+        .prize-card:hover .prize-image {
+            transform: scale(1.05);
+        }
+
+        .prize-title {
             font-size: 1.8rem;
-            color: #ff7e5f;
-            margin-bottom: 0.5rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-weight: 700;
         }
-        
-        .gift p {
-            font-size: 1.1rem;
-            max-width: 600px;
-        }
-        
-        /* Bouton CTA */
-        .cta-section {
-            text-align: center;
-            padding: 0 1rem 3rem;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(90deg, #ff7e5f, #feb47b);
-            color: white;
+
+        .prize-value {
             font-size: 1.2rem;
+            color: var(--success);
             font-weight: 600;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            box-shadow: 0 4px 15px rgba(255, 126, 95, 0.4);
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: none;
-            cursor: pointer;
+            margin-bottom: 15px;
         }
-        
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(255, 126, 95, 0.6);
+
+        .prize-description {
+            color: var(--dark);
+            opacity: 0.8;
+            margin-bottom: 20px;
+            max-width: 80%;
         }
-        
-        .cta-button:active {
-            transform: translateY(1px);
-        }
-        
-        .subtext {
-            margin-top: 1.5rem;
-            font-size: 1.1rem;
-            color: #555;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        /* Points indicateurs */
-        .indicators {
+
+        .dots-container {
             display: flex;
             justify-content: center;
-            margin-top: 1rem;
+            margin: 20px 0;
         }
-        
-        .indicator {
-            width: 10px;
-            height: 10px;
+
+        .dot {
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
-            background: #ccc;
+            background: var(--secondary);
             margin: 0 5px;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: all 0.3s ease;
         }
-        
-        .indicator.active {
-            background: #ff7e5f;
+
+        .dot.active {
+            background: var(--primary);
+            transform: scale(1.2);
         }
-        
-        /* Pied de page */
-        footer {
-            margin-top: auto;
-            text-align: center;
-            padding: 1.5rem;
-            background: #333;
+
+        .cta-button {
+            background: linear-gradient(to right, var(--primary), var(--accent));
             color: white;
+            border: none;
+            padding: 18px 40px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(108, 92, 231, 0.3);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(108, 92, 231, 0.4);
+        }
+
+        .cta-button:active {
+            transform: translateY(0);
+        }
+
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, var(--accent), var(--primary));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .cta-button:hover::after {
+            opacity: 1;
+        }
+
+        .cta-button span {
+            position: relative;
+            z-index: 2;
+        }
+
+        .timer {
+            font-size: 1rem;
+            color: var(--dark);
+            opacity: 0.7;
+            margin-top: 30px;
+            font-weight: 500;
+        }
+
+        .winner-count {
+            margin-top: 30px;
             font-size: 0.9rem;
+            color: var(--dark);
+            opacity: 0.7;
+        }
+
+        .winner-count strong {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .prizes-container {
+                height: 350px;
+                margin: 30px 0;
+            }
+
+            .prize-card {
+                padding: 20px;
+            }
+
+            .prize-image {
+                width: 150px;
+                height: 150px;
+            }
+
+            .prize-title {
+                font-size: 1.5rem;
+            }
+
+            .prize-description {
+                max-width: 100%;
+            }
+
+            .cta-button {
+                padding: 15px 30px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px 15px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .prizes-container {
+                height: 300px;
+            }
+
+            .prize-title {
+                font-size: 1.3rem;
+            }
+
+            .prize-description {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Animation for attention */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* Floating elements */
+        .floating {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: rgba(108, 92, 231, 0.1);
+            border-radius: 50%;
+        }
+
+        .floating:nth-child(1) {
+            top: 10%;
+            left: 10%;
+            animation: float 15s linear infinite;
+        }
+
+        .floating:nth-child(2) {
+            top: 20%;
+            right: 10%;
+            animation: float 12s linear infinite reverse;
+            width: 30px;
+            height: 30px;
+        }
+
+        .floating:nth-child(3) {
+            bottom: 10%;
+            left: 15%;
+            animation: float 18s linear infinite;
+            width: 40px;
+            height: 40px;
+        }
+
+        .floating:nth-child(4) {
+            bottom: 20%;
+            right: 15%;
+            animation: float 14s linear infinite reverse;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+            100% { transform: translateY(0) rotate(360deg); }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Gagnez l'un des 5 cadeaux exclusifs !</h1>
-        <p>Tentez votre chance dès maintenant</p>
-    </header>
-    
-    <section class="gifts-section">
-        <h2>Nos cadeaux à gagner</h2>
-        <div class="gifts-container">
+    <div class="floating"></div>
+    <div class="floating"></div>
+    <div class="floating"></div>
+    <div class="floating"></div>
+
+    <div class="container">
+        <h1>GAGNEZ UN CADEAU EXCEPTIONNEL !</h1>
+        <p class="subtitle">Inscrivez-vous maintenant pour avoir une chance de gagner l'un de ces cadeaux incroyables</p>
+        
+        <div class="prizes-container">
             <!-- Cadeau 1 - iPhone 16 -->
-            <div class="gift active" data-index="0">
-                <!-- Remplacez image1.png par votre image -->
-                <img src="image1.png" alt="iPhone 16">
-                <h3>iPhone 16</h3>
-                <p>Le tout nouveau smartphone d'Apple avec des fonctionnalités révolutionnaires.</p>
+            <div class="prize-card active" data-index="0">
+                <img src="https://cdn.pixabay.com/photo/2021/09/21/07/40/smartphone-6643044_1280.png" alt="iPhone 16" class="prize-image">
+                <h2 class="prize-title">iPhone 16 Pro Max</h2>
+                <div class="prize-value">Valeur: 1 499€</div>
+                <p class="prize-description">Le tout dernier iPhone avec écran Super Retina XDR, processeur A18 Bionic et système de caméra professionnel.</p>
             </div>
             
-            <!-- Cadeau 2 - Carte cadeau fast-food -->
-            <div class="gift" data-index="1">
-                <!-- Remplacez image2.png par votre image -->
-                <img src="image2.png" alt="Carte cadeau McDonald's ou KFC">
-                <h3>Carte cadeau McDonald's ou KFC (10 à 20 €)</h3>
-                <p>Profitez d'un bon repas offert dans votre fast-food préféré.</p>
+            <!-- Cadeau 2 - Carte cadeau -->
+            <div class="prize-card" data-index="1">
+                <img src="https://cdn.pixabay.com/photo/2017/01/31/23/42/debit-card-2028046_1280.png" alt="Carte cadeau" class="prize-image">
+                <h2 class="prize-title">Carte Cadeau McDonald's/KFC</h2>
+                <div class="prize-value">Valeur: 10€ à 20€</div>
+                <p class="prize-description">Dégustez vos burgers et frites préférés gratuitement avec cette carte cadeau utilisable dans tous les restaurants.</p>
             </div>
             
-            <!-- Cadeau 3 - Abonnement streaming -->
-            <div class="gift" data-index="2">
-                <!-- Remplacez image3.png par votre image -->
-                <img src="image3.png" alt="Abonnement Netflix ou Spotify">
-                <h3>1 mois d'abonnement gratuit à Netflix ou Spotify</h3>
-                <p>Divertissement ou musique illimitée pendant un mois.</p>
+            <!-- Cadeau 3 - Abonnement -->
+            <div class="prize-card" data-index="2">
+                <img src="https://cdn.pixabay.com/photo/2021/12/11/07/59/netflix-6862159_1280.png" alt="Abonnement Netflix" class="prize-image">
+                <h2 class="prize-title">Abonnement Netflix/Spotify</h2>
+                <div class="prize-value">Valeur: 15€</div>
+                <p class="prize-description">1 mois d'abonnement gratuit pour profiter de tous vos films, séries et musiques préférés sans publicité.</p>
             </div>
             
-            <!-- Cadeau 4 - Écouteurs -->
-            <div class="gift" data-index="3">
-                <!-- Remplacez image4.png par votre image -->
-                <img src="image4.png" alt="AirPods ou écouteurs Bluetooth">
-                <h3>AirPods ou écouteurs Bluetooth sans fil</h3>
-                <p>Écoutez votre musique en toute liberté avec ces écouteurs haut de gamme.</p>
+            <!-- Cadeau 4 - AirPods -->
+            <div class="prize-card" data-index="3">
+                <img src="https://cdn.pixabay.com/photo/2021/11/13/03/12/earbuds-6790764_1280.png" alt="AirPods" class="prize-image">
+                <h2 class="prize-title">AirPods Pro</h2>
+                <div class="prize-value">Valeur: 279€</div>
+                <p class="prize-description">Écouteurs sans fil avec réduction active du bruit et qualité sonore exceptionnelle.</p>
             </div>
             
-            <!-- Cadeau 5 - Carte cadeau e-commerce -->
-            <div class="gift" data-index="4">
-                <!-- Remplacez image5.png par votre image -->
-                <img src="image5.png" alt="Carte cadeau Amazon ou AliExpress">
-                <h3>Carte cadeau Amazon ou AliExpress (5 à 20 €)</h3>
-                <p>Dépensez cette somme sur les plateformes de e-commerce leaders.</p>
-            </div>
-            
-            <!-- Cadeau 6 - Mini drone -->
-            <div class="gift" data-index="5">
-                <!-- Remplacez image6.png par votre image -->
-                <img src="image6.png" alt="Mini drone caméra">
-                <h3>Mini drone caméra</h3>
-                <p>Capturez des vues aériennes avec ce drone compact et facile à utiliser.</p>
+            <!-- Cadeau 5 - Drone -->
+            <div class="prize-card" data-index="4">
+                <img src="https://cdn.pixabay.com/photo/2017/04/11/22/25/drone-2223048_1280.png" alt="Drone" class="prize-image">
+                <h2 class="prize-title">Mini Drone Caméra</h2>
+                <div class="prize-value">Valeur: 129€</div>
+                <p class="prize-description">Drone compact avec caméra HD 1080p, parfait pour capturer des vues aériennes spectaculaires.</p>
             </div>
         </div>
         
-        <div class="indicators">
-            <div class="indicator active" data-index="0"></div>
-            <div class="indicator" data-index="1"></div>
-            <div class="indicator" data-index="2"></div>
-            <div class="indicator" data-index="3"></div>
-            <div class="indicator" data-index="4"></div>
-            <div class="indicator" data-index="5"></div>
+        <div class="dots-container">
+            <div class="dot active" data-index="0"></div>
+            <div class="dot" data-index="1"></div>
+            <div class="dot" data-index="2"></div>
+            <div class="dot" data-index="3"></div>
+            <div class="dot" data-index="4"></div>
         </div>
-    </section>
-    
-    <section class="cta-section">
-        <button class="cta-button">S'inscrire pour tenter de gagner</button>
-        <p class="subtext">Inscris-toi et entre dans le tirage au sort. Des gagnants chaque semaine !</p>
-    </section>
-    
-    <footer>
-        <p>© 2023 Concours cadeaux. Tous droits réservés.</p>
-    </footer>
+        
+        <button class="cta-button pulse">
+            <span><i class="fas fa-gift"></i> PARTICIPER MAINTENANT</span>
+        </button>
+        
+        <div class="timer">
+            <i class="fas fa-clock"></i> Offre limitée dans le temps !
+        </div>
+        
+        <div class="winner-count">
+            Déjà <strong>1,247</strong> participants cette semaine !
+        </div>
+    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const gifts = document.querySelectorAll('.gift');
-            const indicators = document.querySelectorAll('.indicator');
+            const prizeCards = document.querySelectorAll('.prize-card');
+            const dots = document.querySelectorAll('.dot');
             let currentIndex = 0;
-            const intervalTime = 2000; // 2 secondes
-            let slideInterval;
+            const intervalTime = 3000; // 3 secondes
             
-            // Fonction pour passer au cadeau suivant
-            function nextGift() {
-                // Retirer les classes actives
-                gifts[currentIndex].classList.remove('active');
-                gifts[currentIndex].classList.add('exit');
-                indicators[currentIndex].classList.remove('active');
+            // Fonction pour changer de carte
+            function showNextCard() {
+                // Retirer la classe active de la carte et du point actuels
+                prizeCards[currentIndex].classList.remove('active');
+                prizeCards[currentIndex].classList.add('exiting');
+                dots[currentIndex].classList.remove('active');
                 
-                // Incrémenter l'index
-                currentIndex = (currentIndex + 1) % gifts.length;
-                
-                // Ajouter les classes actives
+                // Après l'animation de sortie, retirer la classe exiting
                 setTimeout(() => {
-                    gifts.forEach(gift => gift.classList.remove('exit'));
-                    gifts[currentIndex].classList.add('active');
-                    indicators[currentIndex].classList.add('active');
-                }, 1000);
+                    prizeCards[currentIndex].classList.remove('exiting');
+                }, 800);
+                
+                // Passer à la carte suivante
+                currentIndex = (currentIndex + 1) % prizeCards.length;
+                
+                // Ajouter la classe active à la nouvelle carte et au nouveau point
+                prizeCards[currentIndex].classList.add('active');
+                dots[currentIndex].classList.add('active');
             }
             
-            // Démarrer l'automatisation
-            function startInterval() {
-                slideInterval = setInterval(nextGift, intervalTime);
-            }
+            // Démarrer le défilement automatique
+            let slideInterval = setInterval(showNextCard, intervalTime);
             
-            // Gestion du clic sur les indicateurs
-            indicators.forEach(indicator => {
-                indicator.addEventListener('click', function() {
-                    clearInterval(slideInterval);
-                    
+            // Gérer le clic sur les points
+            dots.forEach(dot => {
+                dot.addEventListener('click', function() {
                     const targetIndex = parseInt(this.getAttribute('data-index'));
                     
-                    // Retirer les classes actives
-                    gifts[currentIndex].classList.remove('active');
-                    gifts[currentIndex].classList.add('exit');
-                    indicators[currentIndex].classList.remove('active');
+                    // Si on clique sur le point actif, ne rien faire
+                    if (targetIndex === currentIndex) return;
                     
+                    // Arrêter le défilement automatique temporairement
+                    clearInterval(slideInterval);
+                    
+                    // Retirer la classe active de la carte et du point actuels
+                    prizeCards[currentIndex].classList.remove('active');
+                    prizeCards[currentIndex].classList.add('exiting');
+                    dots[currentIndex].classList.remove('active');
+                    
+                    // Après l'animation de sortie, retirer la classe exiting
+                    setTimeout(() => {
+                        prizeCards[currentIndex].classList.remove('exiting');
+                    }, 800);
+                    
+                    // Mettre à jour l'index courant
                     currentIndex = targetIndex;
                     
-                    // Ajouter les classes actives
-                    setTimeout(() => {
-                        gifts.forEach(gift => gift.classList.remove('exit'));
-                        gifts[currentIndex].classList.add('active');
-                        indicators[currentIndex].classList.add('active');
-                    }, 1000);
+                    // Ajouter la classe active à la nouvelle carte et au nouveau point
+                    prizeCards[currentIndex].classList.add('active');
+                    dots[currentIndex].classList.add('active');
                     
-                    // Redémarrer l'intervalle
-                    startInterval();
+                    // Redémarrer le défilement automatique
+                    slideInterval = setInterval(showNextCard, intervalTime);
                 });
             });
             
-            // Démarrer le défilement automatique
-            startInterval();
+            // Gérer le survol pour arrêter le défilement
+            const prizesContainer = document.querySelector('.prizes-container');
+            prizesContainer.addEventListener('mouseenter', () => {
+                clearInterval(slideInterval);
+            });
             
-            // Animation du bouton CTA au survol
+            prizesContainer.addEventListener('mouseleave', () => {
+                slideInterval = setInterval(showNextCard, intervalTime);
+            });
+            
+            // Bouton CTA
             const ctaButton = document.querySelector('.cta-button');
-            ctaButton.addEventListener('click', function(e) {
-                e.preventDefault();
-                // Animation de "clic" pour le feedback utilisateur
-                this.style.transform = 'scale(0.95)';
+            ctaButton.addEventListener('click', function() {
+                // Animation au clic
+                this.classList.add('clicked');
                 setTimeout(() => {
-                    this.style.transform = 'scale(1)';
-                    alert('Merci pour votre intérêt ! Le concours sera bientôt disponible.');
-                }, 150);
+                    this.classList.remove('clicked');
+                }, 300);
+                
+                // Redirection vers une page d'inscription
+                alert('Redirection vers la page d\'inscription!');
+                // window.location.href = "https://votresite.com/inscription";
             });
         });
     </script>
