@@ -3,572 +3,435 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Top Produits AliExpress | Affiliation Premium</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Tirage au Sort Exceptionnel - Gagnez des Cadeaux Incroyables</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #FF6B00; /* Orange AliExpress */
-            --secondary: #2A2A2A;
-            --accent: #00AAFF;
-            --light: #f8f9fa;
-            --dark: #212529;
-            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            --gradient: linear-gradient(135deg, #FF6B00 0%, #FF8F00 100%);
+            --primary: #6c63ff;
+            --primary-dark: #564fcc;
+            --secondary: #ff6584;
+            --dark: #2d3748;
+            --light: #f7fafc;
+            --gray: #e2e8f0;
+            --success: #48bb78;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background-color: #f5f5f5;
-            color: var(--secondary);
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f9ff;
+            color: var(--dark);
+            line-height: 1.6;
             overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         /* Header */
         header {
-            background: var(--gradient);
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
-            padding: 1.5rem 0;
-            position: relative;
-            overflow: hidden;
+            padding: 20px 0;
             box-shadow: var(--shadow);
+            position: relative;
             z-index: 10;
         }
 
         .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
             font-size: 1.8rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
+            letter-spacing: 1px;
         }
 
-        .logo i {
-            margin-right: 0.5rem;
-            color: white;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent);
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
+        .tagline {
+            font-weight: 300;
+            opacity: 0.9;
+            font-size: 0.9rem;
         }
 
         /* Hero Section */
         .hero {
-            height: 500px;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://media.istockphoto.com/id/1365436662/fr/photo/bo%C3%AEte-demballage-en-carton-ouverte-avec-des-%C3%A9l%C3%A9ments-dachat-en-ligne.jpg?s=2048x2048&w=is&k=20&c=5s0QvYQ5w9Z5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q=') no-repeat center center/cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            padding: 80px 0 40px;
             text-align: center;
-            color: white;
             position: relative;
             overflow: hidden;
         }
 
-        .hero-content {
-            max-width: 800px;
-            padding: 0 2rem;
-            z-index: 2;
-            animation: fadeInUp 1s ease-out;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            width: 200px;
+            height: 200px;
+            background-color: rgba(108, 99, 255, 0.1);
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background-color: rgba(255, 101, 132, 0.1);
+            border-radius: 50%;
+            z-index: -1;
         }
 
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            animation: fadeInUp 0.8s ease-out;
         }
 
         .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: var(--dark);
+            opacity: 0.9;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .countdown {
+            background-color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .countdown i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+
+        .countdown-text {
+            font-weight: 500;
+        }
+
+        /* Prizes Section */
+        .prizes-section {
+            padding: 60px 0;
+            background-color: white;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 50px;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 3px;
+        }
+
+        .prizes-container {
+            position: relative;
+            height: 400px;
+            margin: 0 auto;
+            max-width: 900px;
+            perspective: 1000px;
+        }
+
+        .prize-card {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            width: 90%;
+            max-width: 600px;
+            height: 350px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            opacity: 0;
+            transform: translateX(100%) rotateY(90deg);
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .prize-card.active {
+            opacity: 1;
+            transform: translateX(0) rotateY(0);
+            z-index: 2;
+        }
+
+        .prize-card.prev {
+            transform: translateX(-100%) rotateY(-90deg);
+            opacity: 0;
+        }
+
+        .prize-image {
+            width: 150px;
+            height: 150px;
+            object-fit: contain;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .prize-card:hover .prize-image {
+            transform: scale(1.1);
+        }
+
+        .prize-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .prize-value {
+            font-weight: 500;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+
+        .prize-description {
+            text-align: center;
+            color: var(--dark);
+            opacity: 0.8;
+            max-width: 500px;
+        }
+
+        .prize-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--gray);
+            margin: 0 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background-color: var(--primary);
+            transform: scale(1.2);
+        }
+
+        /* Form Section */
+        .form-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #f9f9ff 100%);
+            position: relative;
+        }
+
+        .form-container {
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            padding: 40px;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 8px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+        }
+
+        .form-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: var(--primary);
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid var(--gray);
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2);
         }
 
         .btn {
             display: inline-block;
-            padding: 0.8rem 2rem;
-            background: var(--gradient);
+            background: linear-gradient(to right, var(--primary), var(--primary-dark));
             color: white;
             border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: 500;
             border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
             cursor: pointer;
-            transition: var(--transition);
-            box-shadow: 0 4px 15px rgba(255, 107, 0, 0.4);
-            position: relative;
-            overflow: hidden;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
         }
 
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(255, 107, 0, 0.6);
+            box-shadow: 0 8px 20px rgba(108, 99, 255, 0.4);
         }
 
         .btn:active {
             transform: translateY(1px);
         }
 
-        /* Products Section */
-        .products {
-            padding: 5rem 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--secondary);
-            display: inline-block;
-            position: relative;
-        }
-
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--gradient);
-            border-radius: 2px;
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        @media (min-width: 1200px) {
-            .products-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .products-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        .product-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            position: relative;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .product-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: var(--gradient);
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            z-index: 2;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .product-image {
-            height: 0;
-            padding-bottom: 100%; /* Carré parfait (1:1) */
-            position: relative;
-            overflow: hidden;
-        }
-
-        .product-image img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .product-card:hover .product-image img {
-            transform: scale(1.05);
-        }
-
-        .product-info {
-            padding: 1.5rem;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .product-category {
-            color: var(--accent);
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
+        .btn-block {
             display: block;
+            width: 100%;
         }
 
-        .product-title {
-            font-size: 1.2rem;
-            margin-bottom: 0.8rem;
-            color: var(--secondary);
-            font-weight: 700;
-            flex: 1;
-        }
-
-        .product-description {
-            color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 1.2rem;
-            line-height: 1.5;
-        }
-
-        .product-price {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-top: auto;
-        }
-
-        .price {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        .old-price {
-            text-decoration: line-through;
-            color: #999;
-            font-size: 0.9rem;
-            margin-left: 0.5rem;
-        }
-
-        .discount {
-            background: #ffebee;
-            color: var(--primary);
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .see-on-ali {
-            background: var(--gradient);
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 0.6rem 1.2rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            text-decoration: none;
+        .form-note {
+            font-size: 0.85rem;
+            color: var(--dark);
+            opacity: 0.7;
             text-align: center;
-            justify-content: center;
-        }
-
-        .see-on-ali:hover {
-            background: linear-gradient(135deg, #FF8F00 0%, #FF6B00 100%);
-            box-shadow: 0 4px 15px rgba(255, 107, 0, 0.4);
-        }
-
-        .product-actions {
-            display: flex;
-            gap: 0.8rem;
-            margin-top: 1rem;
-        }
-
-        .action-btn {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: #f5f5f5;
-            border: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: var(--transition);
-            color: var(--secondary);
-        }
-
-        .action-btn:hover {
-            background: var(--accent);
-            color: white;
-            transform: rotate(15deg);
-        }
-
-        /* Features Section */
-        .features {
-            padding: 5rem 2rem;
-            background: linear-gradient(to right, #f9f9f9, #f0f0f0);
-        }
-
-        .features-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            text-align: center;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        .feature-icon {
-            font-size: 2.5rem;
-            color: var(--accent);
-            margin-bottom: 1.5rem;
-        }
-
-        .feature-title {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: var(--secondary);
-        }
-
-        .feature-description {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        /* Newsletter */
-        .newsletter {
-            padding: 4rem 2rem;
-            background: var(--gradient);
-            color: white;
-            text-align: center;
-        }
-
-        .newsletter-container {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .newsletter h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .newsletter p {
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        .newsletter-form {
-            display: flex;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .newsletter-input {
-            flex: 1;
-            padding: 0.8rem 1.2rem;
-            border: none;
-            border-radius: 50px 0 0 50px;
-            font-size: 1rem;
-            outline: none;
-        }
-
-        .newsletter-btn {
-            padding: 0 1.5rem;
-            background: var(--secondary);
-            color: white;
-            border: none;
-            border-radius: 0 50px 50px 0;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .newsletter-btn:hover {
-            background: #2a2a2a;
+            margin-top: 20px;
         }
 
         /* Footer */
         footer {
-            background: var(--secondary);
+            background-color: var(--dark);
             color: white;
-            padding: 4rem 2rem 2rem;
+            padding: 30px 0;
+            text-align: center;
         }
 
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-        }
-
-        .footer-col h3 {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        .footer-col h3::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 40px;
-            height: 3px;
-            background: var(--accent);
-        }
-
-        .footer-col ul {
-            list-style: none;
-        }
-
-        .footer-col ul li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-col ul li a {
-            color: #bbb;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .footer-col ul li a:hover {
-            color: var(--accent);
-            padding-left: 5px;
-        }
-
-        .social-links {
+        .footer-content {
             display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-links a {
-            display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            transition: var(--transition);
         }
 
-        .social-links a:hover {
-            background: var(--accent);
-            transform: translateY(-3px);
+        .footer-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-links {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .footer-link {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--secondary);
         }
 
         .copyright {
-            text-align: center;
-            padding-top: 3rem;
-            margin-top: 3rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #bbb;
             font-size: 0.9rem;
+            opacity: 0.7;
         }
 
-        /* Back to top button */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: var(--primary);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(255, 107, 0, 0.4);
-            transition: var(--transition);
-            opacity: 0;
-            visibility: hidden;
-            z-index: 999;
+        /* Success Message */
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 40px;
         }
 
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
+        .success-message i {
+            font-size: 4rem;
+            color: var(--success);
+            margin-bottom: 20px;
         }
 
-        .back-to-top:hover {
-            background: var(--accent);
-            transform: translateY(-3px);
+        .success-message h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--success);
+        }
+
+        .success-message p {
+            margin-bottom: 25px;
+            font-size: 1.1rem;
         }
 
         /* Animations */
@@ -583,533 +446,337 @@
             }
         }
 
-        /* Responsive */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .prizes-container {
+                height: 350px;
+            }
+            
+            .prize-card {
+                height: 300px;
+                padding: 20px;
+            }
+            
+            .prize-name {
+                font-size: 1.3rem;
+            }
+            
+            .form-container {
+                padding: 30px 20px;
+            }
+            
+            .form-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
             .header-content {
                 flex-direction: column;
-                gap: 1rem;
+                text-align: center;
             }
-
-            .nav-links {
-                gap: 1rem;
+            
+            .logo {
+                margin-bottom: 10px;
             }
-
+            
+            .hero {
+                padding: 60px 0 30px;
+            }
+            
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 1.8rem;
             }
-
-            .newsletter-form {
-                flex-direction: column;
+            
+            .countdown {
+                padding: 10px 20px;
+                font-size: 0.9rem;
             }
-
-            .newsletter-input {
-                border-radius: 50px;
-                margin-bottom: 1rem;
+            
+            .prizes-container {
+                height: 320px;
             }
-
-            .newsletter-btn {
-                border-radius: 50px;
-                padding: 0.8rem;
+            
+            .prize-card {
+                height: 280px;
+            }
+            
+            .prize-image {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+                font-size: 1rem;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="header-content">
-            <div class="logo">
-                <i class="fas fa-shopping-bag"></i>
-                <span>AliAffiliate</span>
-            </div>
-            <nav class="nav-links">
-                <a href="#">Accueil</a>
-                <a href="#">Produits</a>
-                <a href="#">Catégories</a>
-                <a href="#">Promotions</a>
-                <a href="#">Contact</a>
-            </nav>
+        <div class="container header-content">
+            <div class="logo">LuckyDraw</div>
+            <div class="tagline">Votre chance de gagner des cadeaux exceptionnels</div>
         </div>
     </header>
 
     <section class="hero">
-        <div class="hero-content">
-            <h1>Meilleurs Produits AliExpress</h1>
-            <p>Découvrez notre sélection exclusive d'articles tendance avec nos liens d'affiliation</p>
-            <a href="#products" class="btn">Voir les produits</a>
-        </div>
-    </section>
-
-    <section class="products" id="products">
-        <div class="section-title">
-            <h2>Nos Recommandations</h2>
-        </div>
-        <div class="products-grid">
-            <!-- Produit 1 -->
-            <div class="product-card">
-                <div class="product-badge">Nouveau</div>
-                <div class="product-image">
-                    <img src="https://media.istockphoto.com/id/1316145932/fr/photo/montre-intelligente-avec-%C3%A9cran-tactile.jpg?s=1024x1024&w=is&k=20&c=5s0QvYQ5w9Z5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q=" alt="Montre intelligente">
-                </div>
-                <div class="product-info">
-                    <span class="product-category">Électronique</span>
-                    <h3 class="product-title">Montre Intelligente 2024</h3>
-                    <p class="product-description">Écran tactile 1.7", surveillance du rythme cardiaque, étanche IP68, batterie 7 jours.</p>
-                    <div class="product-price">
-                        <div>
-                            <span class="price">€39.99</span>
-                            <span class="old-price">€79.99</span>
-                            <span class="discount">-50%</span>
-                        </div>
-                    </div>
-                    <a href="https://aliexpress.com" class="see-on-ali" target="_blank">
-                        <i class="fas fa-external-link-alt"></i> Voir sur AliExpress
-                    </a>
-                    <div class="product-actions">
-                        <button class="action-btn"><i class="far fa-heart"></i></button>
-                        <button class="action-btn"><i class="fas fa-share-alt"></i></button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Produit 2 -->
-            <div class="product-card">
-                <div class="product-badge">Promo</div>
-                <div class="product-image">
-                    <img src="https://media.istockphoto.com/id/1342392000/fr/photo/casque-sans-fil-avec-r%C3%A9duction-de-bruit.jpg?s=1024x1024&w=is&k=20&c=5s0QvYQ5w9Z5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q=" alt="Casque Bluetooth">
-                </div>
-                <div class="product-info">
-                    <span class="product-category">Audio</span>
-                    <h3 class="product-title">Casque Bluetooth ANC</h3>
-                    <p class="product-description">Réduction active du bruit, son HD, autonomie 30h, micro intégré.</p>
-                    <div class="product-price">
-                        <div>
-                            <span class="price">€59.99</span>
-                            <span class="old-price">€129.99</span>
-                            <span class="discount">-54%</span>
-                        </div>
-                    </div>
-                    <a href="https://aliexpress.com" class="see-on-ali" target="_blank">
-                        <i class="fas fa-external-link-alt"></i> Voir sur AliExpress
-                    </a>
-                    <div class="product-actions">
-                        <button class="action-btn"><i class="far fa-heart"></i></button>
-                        <button class="action-btn"><i class="fas fa-share-alt"></i></button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Produit 3 -->
-            <div class="product-card">
-                <div class="product-badge">Top</div>
-                <div class="product-image">
-                    <img src="https://media.istockphoto.com/id/1367016617/fr/photo/drone-de-course-avec-cam%C3%A9ra-hd.jpg?s=1024x1024&w=is&k=20&c=5s0QvYQ5w9Z5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q=" alt="Drone">
-                </div>
-                <div class="product-info">
-                    <span class="product-category">Drone</span>
-                    <h3 class="product-title">Drone 4K avec Caméra</h3>
-                    <p class="product-description">Caméra 4K, stabilisation 3 axes, contrôle par smartphone, retour automatique.</p>
-                    <div class="product-price">
-                        <div>
-                            <span class="price">€129.99</span>
-                            <span class="old-price">€299.99</span>
-                            <span class="discount">-57%</span>
-                        </div>
-                    </div>
-                    <a href="https://aliexpress.com" class="see-on-ali" target="_blank">
-                        <i class="fas fa-external-link-alt"></i> Voir sur AliExpress
-                    </a>
-                    <div class="product-actions">
-                        <button class="action-btn"><i class="far fa-heart"></i></button>
-                        <button class="action-btn"><i class="fas fa-share-alt"></i></button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Produit 4 -->
-            <div class="product-card">
-                <div class="product-badge">Vente Flash</div>
-                <div class="product-image">
-                    <img src="https://media.istockphoto.com/id/1355683470/fr/photo/projecteur-portable-mini-led.jpg?s=1024x1024&w=is&k=20&c=5s0QvYQ5w9Z5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q=" alt="Projecteur">
-                </div>
-                <div class="product-info">
-                    <span class="product-category">Home Cinéma</span>
-                    <h3 class="product-title">Projecteur Full HD 1080P</h3>
-                    <p class="product-description">Résolution native 1080p, WiFi, Bluetooth, compatible Netflix/YouTube.</p>
-                    <div class="product-price">
-                        <div>
-                            <span class="price">€89.99</span>
-                            <span class="old-price">€199.99</span>
-                            <span class="discount">-55%</span>
-                        </div>
-                    </div>
-                    <a href="https://aliexpress.com" class="see-on-ali" target="_blank">
-                        <i class="fas fa-external-link-alt"></i> Voir sur AliExpress
-                    </a>
-                    <div class="product-actions">
-                        <button class="action-btn"><i class="far fa-heart"></i></button>
-                        <button class="action-btn"><i class="fas fa-share-alt"></i></button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Produit 5 -->
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="https://media.istockphoto.com/id/1320119356/fr/photo/brosse-%C3%A0-dents-%C3%A9lectrique-blanche.jpg?s=1024x1024&w=is&k=20&c=5s0QvYQ5w9Z5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q=" alt="Brosse à dents électrique">
-                </div>
-                <div class="product-info">
-                    <span class="product-category">Santé & Beauté</span>
-                    <h3 class="product-title">Brosse à Dents Électrique</h3>
-                    <p class="product-description">4 modes de nettoyage, étanche IPX7, autonomie 30 jours, charge USB.</p>
-                    <div class="product-price">
-                        <div>
-                            <span class="price">€19.99</span>
-                            <span class="old-price">€49.99</span>
-                            <span class="discount">-60%</span>
-                        </div>
-                    </div>
-                    <a href="https://aliexpress.com" class="see-on-ali" target="_blank">
-                        <i class="fas fa-external-link-alt"></i> Voir sur AliExpress
-                    </a>
-                    <div class="product-actions">
-                        <button class="action-btn"><i class="far fa-heart"></i></button>
-                        <button class="action-btn"><i class="fas fa-share-alt"></i></button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Produit 6 -->
-            <div class="product-card">
-                <div class="product-badge">Économie</div>
-                <div class="product-image">
-                    <img src="https://media.istockphoto.com/id/1322277516/fr/photo/ampoule-connect%C3%A9e-intelligente-avec-changement-de-couleur.jpg?s=1024x1024&w=is&k=20&c=5s0QvYQ5w9Z5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q=" alt="Lampe LED">
-                </div>
-                <div class="product-info">
-                    <span class="product-category">Maison</span>
-                    <h3 class="product-title">Lampe LED Intelligente</h3>
-                    <p class="product-description">16 millions de couleurs, contrôle WiFi, programmation, compatible Alexa.</p>
-                    <div class="product-price">
-                        <div>
-                            <span class="price">€12.99</span>
-                            <span class="old-price">€29.99</span>
-                            <span class="discount">-57%</span>
-                        </div>
-                    </div>
-                    <a href="https://aliexpress.com" class="see-on-ali" target="_blank">
-                        <i class="fas fa-external-link-alt"></i> Voir sur AliExpress
-                    </a>
-                    <div class="product-actions">
-                        <button class="action-btn"><i class="far fa-heart"></i></button>
-                        <button class="action-btn"><i class="fas fa-share-alt"></i></button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Produit 7 -->
-            <div class="product-card">
-                <div class="product-badge">Nouveau</div>
-                <div class="product-image">
-                    <img src="https://media.istockphoto.com/id/1335244377/fr/photo/batterie-externe-de-charge-rapide.jpg?s=1024x1024&w=is&k=20&c=5s0QvYQ5w9Z5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q=" alt="Power Bank">
-                </div>
-                <div class="product-info">
-                    <span class="product-category">Accessoires</span>
-                    <h3 class="product-title">Power Bank 30000mAh</h3>
-                    <p class="product-description">4 ports USB, charge rapide PD 18W, pour tous smartphones et tablettes.</p>
-                    <div class="product-price">
-                        <div>
-                            <span class="price">€29.99</span>
-                            <span class="old-price">€59.99</span>
-                            <span class="discount">-50%</span>
-                        </div>
-                    </div>
-                    <a href="https://aliexpress.com" class="see-on-ali" target="_blank">
-                        <i class="fas fa-external-link-alt"></i> Voir sur AliExpress
-                    </a>
-                    <div class="product-actions">
-                        <button class="action-btn"><i class="far fa-heart"></i></button>
-                        <button class="action-btn"><i class="fas fa-share-alt"></i></button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Produit 8 -->
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="https://media.istockphoto.com/id/1356497292/fr/photo/clavier-gaming-m%C3%A9canique-rgb.jpg?s=1024x1024&w=is&k=20&c=5s0QvYQ5w9Z5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q=" alt="Clavier mécanique">
-                </div>
-                <div class="product-info">
-                    <span class="product-category">Gaming</span>
-                    <h3 class="product-title">Clavier Mécanique RGB</h3>
-                    <p class="product-description">Switches bleus, rétroéclairage RGB personnalisable, anti-ghosting.</p>
-                    <div class="product-price">
-                        <div>
-                            <span class="price">€45.99</span>
-                            <span class="old-price">€89.99</span>
-                            <span class="discount">-49%</span>
-                        </div>
-                    </div>
-                    <a href="https://aliexpress.com" class="see-on-ali" target="_blank">
-                        <i class="fas fa-external-link-alt"></i> Voir sur AliExpress
-                    </a>
-                    <div class="product-actions">
-                        <button class="action-btn"><i class="far fa-heart"></i></button>
-                        <button class="action-btn"><i class="fas fa-share-alt"></i></button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Produit 9 -->
-            <div class="product-card">
-                <div class="product-badge">Meilleur vente</div>
-                <div class="product-image">
-                    <img src="https://media.istockphoto.com/id/1366371902/fr/photo/smartphone-moderne-avec-%C3%A9cran-large.jpg?s=1024x1024&w=is&k=20&c=5s0QvYQ5w9Z5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q=" alt="Smartphone">
-                </div>
-                <div class="product-info">
-                    <span class="product-category">Téléphonie</span>
-                    <h3 class="product-title">Smartphone Android 2024</h3>
-                    <p class="product-description">Écran 6.5" FHD+, 128GB ROM, 6GB RAM, quadruple caméra, batterie 5000mAh.</p>
-                    <div class="product-price">
-                        <div>
-                            <span class="price">€179.99</span>
-                            <span class="old-price">€299.99</span>
-                            <span class="discount">-40%</span>
-                        </div>
-                    </div>
-                    <a href="https://aliexpress.com" class="see-on-ali" target="_blank">
-                        <i class="fas fa-external-link-alt"></i> Voir sur AliExpress
-                    </a>
-                    <div class="product-actions">
-                        <button class="action-btn"><i class="far fa-heart"></i></button>
-                        <button class="action-btn"><i class="fas fa-share-alt"></i></button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Produit 10 -->
-            <div class="product-card">
-                <div class="product-badge">Limitée</div>
-                <div class="product-image">
-                    <img src="https://media.istockphoto.com/id/1355683470/fr/photo/projecteur-portable-mini-led.jpg?s=1024x1024&w=is&k=20&c=5s0QvYQ5w9Z5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q=" alt="Montre intelligente">
-                </div>
-                <div class="product-info">
-                    <span class="product-category">Mode</span>
-                    <h3 class="product-title">Montre Sport Élégante</h3>
-                    <p class="product-description">Écran AMOLED, suivi d'activité, étanche 5ATM, autonomie 10 jours.</p>
-                    <div class="product-price">
-                        <div>
-                            <span class="price">€69.99</span>
-                            <span class="old-price">€149.99</span>
-                            <span class="discount">-53%</span>
-                        </div>
-                    </div>
-                    <a href="https://aliexpress.com" class="see-on-ali" target="_blank">
-                        <i class="fas fa-external-link-alt"></i> Voir sur AliExpress
-                    </a>
-                    <div class="product-actions">
-                        <button class="action-btn"><i class="far fa-heart"></i></button>
-                        <button class="action-btn"><i class="fas fa-share-alt"></i></button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Produit 11 -->
-            <div class="product-card">
-                <div class="product-badge">Nouveau</div>
-                <div class="product-image">
-                    <img src="https://media.istockphoto.com/id/1356497292/fr/photo/clavier-gaming-m%C3%A9canique-rgb.jpg?s=1024x1024&w=is&k=20&c=5s0QvYQ5w9Z5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q=" alt="Souris gaming">
-                </div>
-                <div class="product-info">
-                    <span class="product-category">Gaming</span>
-                    <h3 class="product-title">Souris Gaming RGB</h3>
-                    <p class="product-description">16000 DPI, 7 boutons programmables, rétroéclairage RGB, design ergonomique.</p>
-                    <div class="product-price">
-                        <div>
-                            <span class="price">€32.99</span>
-                            <span class="old-price">€59.99</span>
-                            <span class="discount">-45%</span>
-                        </div>
-                    </div>
-                    <a href="https://aliexpress.com" class="see-on-ali" target="_blank">
-                        <i class="fas fa-external-link-alt"></i> Voir sur AliExpress
-                    </a>
-                    <div class="product-actions">
-                        <button class="action-btn"><i class="far fa-heart"></i></button>
-                        <button class="action-btn"><i class="fas fa-share-alt"></i></button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Produit 12 -->
-            <div class="product-card">
-                <div class="product-badge">Promo</div>
-                <div class="product-image">
-                    <img src="https://media.istockphoto.com/id/1366371902/fr/photo/smartphone-moderne-avec-%C3%A9cran-large.jpg?s=1024x1024&w=is&k=20&c=5s0QvYQ5w9Z5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q5Q=" alt="Écouteurs sans fil">
-                </div>
-                <div class="product-info">
-                    <span class="product-category">Audio</span>
-                    <h3 class="product-title">Écouteurs Sans Fil</h3>
-                    <p class="product-description">Bluetooth 5.0, réduction de bruit, autonomie 8h, étanche IPX5, charge rapide.</p>
-                    <div class="product-price">
-                        <div>
-                            <span class="price">€27.99</span>
-                            <span class="old-price">€49.99</span>
-                            <span class="discount">-44%</span>
-                        </div>
-                    </div>
-                    <a href="https://aliexpress.com" class="see-on-ali" target="_blank">
-                        <i class="fas fa-external-link-alt"></i> Voir sur AliExpress
-                    </a>
-                    <div class="product-actions">
-                        <button class="action-btn"><i class="far fa-heart"></i></button>
-                        <button class="action-btn"><i class="fas fa-share-alt"></i></button>
-                    </div>
-                </div>
+        <div class="container">
+            <h1>Participez à notre tirage au sort exceptionnel !</h1>
+            <p>Inscrivez-vous dès maintenant pour tenter de remporter l'un de nos fabuleux cadeaux. Le tirage aura lieu dans :</p>
+            
+            <div class="countdown">
+                <i>⏱️</i>
+                <span class="countdown-text">7 jours, 12 heures, 30 minutes</span>
             </div>
         </div>
     </section>
 
-    <section class="features">
-        <div class="section-title">
-            <h2>Pourquoi Nous Choisir</h2>
-        </div>
-        <div class="features-container">
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-shipping-fast"></i>
+    <section class="prizes-section">
+        <div class="container">
+            <h2 class="section-title">Les cadeaux à gagner</h2>
+            
+            <div class="prizes-container">
+                <!-- Carte cadeau -->
+                <div class="prize-card active">
+                    <img src="gift-card.png" alt="Carte cadeau" class="prize-image">
+                    <h3 class="prize-name">Carte cadeau</h3>
+                    <div class="prize-value">10€ à 20€</div>
+                    <p class="prize-description">Choisissez entre McDonald's, KFC, Amazon ou AliExpress. Le montant varie entre 10€ et 20€ selon votre chance !</p>
                 </div>
-                <h3 class="feature-title">Livraison Rapide</h3>
-                <p class="feature-description">Expédition express avec suivi en temps réel. Livraison garantie sous 15 jours ouvrés pour la plupart des produits.</p>
+                
+                <!-- iPhone -->
+                <div class="prize-card">
+                    <img src="iphone.png" alt="iPhone 16" class="prize-image">
+                    <h3 class="prize-name">iPhone 16</h3>
+                    <div class="prize-value">Valeur: 1200€</div>
+                    <p class="prize-description">Le tout dernier smartphone d'Apple avec écran Super Retina XDR, puissante puce A18 et système photo révolutionnaire.</p>
+                </div>
+                
+                <!-- Abonnement -->
+                <div class="prize-card">
+                    <img src="subscription.png" alt="Abonnement 1 mois" class="prize-image">
+                    <h3 class="prize-name">Abonnement Premium</h3>
+                    <div class="prize-value">1 mois gratuit</div>
+                    <p class="prize-description">Profitez d'un mois d'abonnement gratuit au service de streaming de votre choix : Netflix ou Spotify.</p>
+                </div>
+                
+                <!-- AirPods -->
+                <div class="prize-card">
+                    <img src="airpods.png" alt="AirPods" class="prize-image">
+                    <h3 class="prize-name">AirPods</h3>
+                    <div class="prize-value">Valeur: 180€</div>
+                    <p class="prize-description">Écouteurs sans fil avec qualité sonore exceptionnelle, réduction active du bruit et jusqu'à 24h d'autonomie.</p>
+                </div>
+                
+                <!-- Drone -->
+                <div class="prize-card">
+                    <img src="drone.png" alt="Mini drone" class="prize-image">
+                    <h3 class="prize-name">Mini drone avec caméra</h3>
+                    <div class="prize-value">Valeur: 150€</div>
+                    <p class="prize-description">Drone compact avec caméra HD, stabilisation d'image et contrôle facile via smartphone. Parfait pour débuter.</p>
+                </div>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-shield-alt"></i>
-                </div>
-                <h3 class="feature-title">Paiement Sécurisé</h3>
-                <p class="feature-description">Transactions 100% sécurisées avec cryptage SSL. Protection des acheteurs et garantie de remboursement.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-percentage"></i>
-                </div>
-                <h3 class="feature-title">Meilleurs Prix</h3>
-                <p class="feature-description">Nous sélectionnons les meilleures offres et promotions pour vous garantir les prix les plus bas du marché.</p>
+            
+            <div class="prize-dots">
+                <div class="dot active" data-index="0"></div>
+                <div class="dot" data-index="1"></div>
+                <div class="dot" data-index="2"></div>
+                <div class="dot" data-index="3"></div>
+                <div class="dot" data-index="4"></div>
             </div>
         </div>
     </section>
 
-    <section class="newsletter">
-        <div class="newsletter-container">
-            <h2>Abonnez-vous à notre newsletter</h2>
-            <p>Recevez les dernières offres exclusives et les nouveaux produits directement dans votre boîte mail.</p>
-            <form class="newsletter-form">
-                <input type="email" class="newsletter-input" placeholder="Votre adresse email" required>
-                <button type="submit" class="newsletter-btn">S'abonner</button>
-            </form>
+    <section class="form-section">
+        <div class="container">
+            <div class="form-container">
+                <div id="registration-form">
+                    <h2 class="form-title">Inscrivez-vous maintenant !</h2>
+                    <form id="draw-form">
+                        <div class="form-group">
+                            <label for="name">Nom complet</label>
+                            <input type="text" id="name" class="form-control" placeholder="Votre nom" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Adresse email</label>
+                            <input type="email" id="email" class="form-control" placeholder="votre@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Téléphone (facultatif)</label>
+                            <input type="tel" id="phone" class="form-control" placeholder="06 12 34 56 78">
+                        </div>
+                        <button type="submit" class="btn btn-block pulse">Je participe au tirage !</button>
+                        <p class="form-note">En vous inscrivant, vous acceptez nos conditions générales. Nous ne partagerons jamais vos informations.</p>
+                    </form>
+                </div>
+                
+                <div class="success-message">
+                    <i>🎉</i>
+                    <h3>Félicitations !</h3>
+                    <p>Votre inscription a bien été prise en compte. Vous êtes maintenant participant au tirage au sort.</p>
+                    <p>Nous vous contacterons par email si vous gagnez. Bonne chance !</p>
+                    <button class="btn" onclick="location.reload()">Fermer</button>
+                </div>
+            </div>
         </div>
     </section>
 
     <footer>
-        <div class="footer-container">
-            <div class="footer-col">
-                <h3>AliAffiliate</h3>
-                <p>Votre plateforme d'affiliation pour les meilleurs produits AliExpress. Qualité, prix et service garantis.</p>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-pinterest"></i></a>
-                </div>
+        <div class="container footer-content">
+            <div class="footer-logo">LuckyDraw</div>
+            <div class="footer-links">
+                <a href="#" class="footer-link">Conditions</a>
+                <a href="#" class="footer-link">Confidentialité</a>
+                <a href="#" class="footer-link">Contact</a>
             </div>
-            <div class="footer-col">
-                <h3>Liens Utiles</h3>
-                <ul>
-                    <li><a href="#">Accueil</a></li>
-                    <li><a href="#">Produits</a></li>
-                    <li><a href="#">Promotions</a></li>
-                    <li><a href="#">Nouveautés</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h3>Catégories</h3>
-                <ul>
-                    <li><a href="#">Électronique</a></li>
-                    <li><a href="#">Mode</a></li>
-                    <li><a href="#">Maison & Jardin</a></li>
-                    <li><a href="#">Beauté</a></li>
-                    <li><a href="#">Sports & Loisirs</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h3>Informations</h3>
-                <ul>
-                    <li><a href="#">À propos</a></li>
-                    <li><a href="#">Politique de confidentialité</a></li>
-                    <li><a href="#">Conditions d'utilisation</a></li>
-                    <li><a href="#">Politique d'affiliation</a></li>
-                    <li><a href="#">Contactez-nous</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="copyright">
-            <p>&copy; 2024 AliAffiliate. Tous droits réservés. Ce site contient des liens d'affiliation.</p>
+            <div class="copyright">© 2023 LuckyDraw. Tous droits réservés.</div>
         </div>
     </footer>
 
-    <div class="back-to-top">
-        <i class="fas fa-arrow-up"></i>
-    </div>
-
     <script>
-        // Animation au défilement
         document.addEventListener('DOMContentLoaded', function() {
-            // Animation des cartes produits
-            const animateCards = () => {
-                const cards = document.querySelectorAll('.product-card, .feature-card');
-                cards.forEach(card => {
-                    card.style.opacity = '0';
-                    card.style.transform = 'translateY(20px)';
-                    card.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            // Carousel des cadeaux
+            const prizeCards = document.querySelectorAll('.prize-card');
+            const dots = document.querySelectorAll('.dot');
+            let currentIndex = 0;
+            let interval;
+            
+            function showPrize(index) {
+                prizeCards.forEach(card => card.classList.remove('active', 'prev'));
+                dots.forEach(dot => dot.classList.remove('active'));
+                
+                if (index >= prizeCards.length) index = 0;
+                if (index < 0) index = prizeCards.length - 1;
+                
+                prizeCards[currentIndex].classList.add('prev');
+                prizeCards[index].classList.add('active');
+                dots[index].classList.add('active');
+                
+                currentIndex = index;
+            }
+            
+            function nextPrize() {
+                showPrize(currentIndex + 1);
+            }
+            
+            function startCarousel() {
+                interval = setInterval(nextPrize, 3000);
+            }
+            
+            function stopCarousel() {
+                clearInterval(interval);
+            }
+            
+            // Gestion des clics sur les dots
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    stopCarousel();
+                    showPrize(index);
+                    startCarousel();
                 });
-
+            });
+            
+            // Démarrer le carousel
+            startCarousel();
+            
+            // Gestion du formulaire
+            const form = document.getElementById('draw-form');
+            const registrationForm = document.getElementById('registration-form');
+            const successMessage = document.querySelector('.success-message');
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Ici, vous devriez normalement envoyer les données à un serveur
+                // Pour cet exemple, nous simulons simplement une soumission réussie
+                
+                // Masquer le formulaire et afficher le message de succès
+                registrationForm.style.display = 'none';
+                successMessage.style.display = 'block';
+                
+                // Vous pouvez ajouter ici le code pour envoyer les données à votre backend
+                // const formData = {
+                //     name: document.getElementById('name').value,
+                //     email: document.getElementById('email').value,
+                //     phone: document.getElementById('phone').value
+                // };
+                // console.log('Données du formulaire:', formData);
+            });
+            
+            // Compte à rebours simulé
+            function updateCountdown() {
+                const countdownElement = document.querySelector('.countdown-text');
+                let days = 7, hours = 12, minutes = 30;
+                
+                setInterval(() => {
+                    minutes--;
+                    if (minutes < 0) {
+                        minutes = 59;
+                        hours--;
+                        if (hours < 0) {
+                            hours = 23;
+                            days--;
+                        }
+                    }
+                    
+                    countdownElement.textContent = `${days} jours, ${hours} heures, ${minutes} minutes`;
+                }, 60000); // Mise à jour toutes les minutes
+            }
+            
+            updateCountdown();
+            
+            // Animation au scroll
+            const animateOnScroll = () => {
+                const elements = document.querySelectorAll('.prizes-section, .form-section');
+                
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
-                            entry.target.style.opacity = '1';
+                            entry.target.style.opacity = 1;
                             entry.target.style.transform = 'translateY(0)';
                         }
                     });
                 }, { threshold: 0.1 });
-
-                cards.forEach(card => observer.observe(card));
+                
+                elements.forEach(el => {
+                    el.style.opacity = 0;
+                    el.style.transform = 'translateY(20px)';
+                    el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+                    observer.observe(el);
+                });
             };
-
-            animateCards();
-
-            // Bouton retour en haut
-            const backToTop = document.querySelector('.back-to-top');
-            window.addEventListener('scroll', () => {
-                if (window.pageYOffset > 300) {
-                    backToTop.classList.add('visible');
-                } else {
-                    backToTop.classList.remove('visible');
-                }
-            });
-
-            backToTop.addEventListener('click', () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-
-            // Animation des boutons "Voir sur AliExpress"
-            document.querySelectorAll('.see-on-ali').forEach(button => {
-                button.addEventListener('click', function(e) {
-                    // Vous pouvez ajouter ici un suivi d'affiliation si nécessaire
-                    console.log('Lien d\'affiliation cliqué:', this.href);
-                });
-            });
+            
+            animateOnScroll();
         });
     </script>
 </body>
