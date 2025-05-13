@@ -3,780 +3,327 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tirage au Sort Exceptionnel - Gagnez des Cadeaux Incroyables</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <title>Gagnez l'un des 5 cadeaux exclusifs !</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #6c63ff;
-            --primary-dark: #564fcc;
-            --secondary: #ff6584;
-            --dark: #2d3748;
-            --light: #f7fafc;
-            --gray: #e2e8f0;
-            --success: #48bb78;
-            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-
+        /* Reset et styles de base */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #f9f9ff;
-            color: var(--dark);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
             line-height: 1.6;
-            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
+        
+        /* En-tête */
         header {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            background: linear-gradient(90deg, #ff7e5f, #feb47b);
             color: white;
-            padding: 20px 0;
-            box-shadow: var(--shadow);
-            position: relative;
-            z-index: 10;
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
-            font-size: 1.8rem;
-            letter-spacing: 1px;
-        }
-
-        .tagline {
-            font-weight: 300;
-            opacity: 0.9;
-            font-size: 0.9rem;
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 80px 0 40px;
             text-align: center;
-            position: relative;
-            overflow: hidden;
+            padding: 2rem 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50px;
-            left: -50px;
-            width: 200px;
-            height: 200px;
-            background-color: rgba(108, 99, 255, 0.1);
-            border-radius: 50%;
-            z-index: -1;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -100px;
-            right: -100px;
-            width: 300px;
-            height: 300px;
-            background-color: rgba(255, 101, 132, 0.1);
-            border-radius: 50%;
-            z-index: -1;
-        }
-
-        .hero h1 {
-            font-family: 'Montserrat', sans-serif;
+        
+        h1 {
             font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: var(--primary);
-            animation: fadeInUp 0.8s ease-out;
+            margin-bottom: 1rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
         }
-
-        .hero p {
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin: 0 auto 40px;
-            color: var(--dark);
-            opacity: 0.9;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
-        }
-
-        .countdown {
-            background-color: white;
-            padding: 15px 30px;
-            border-radius: 50px;
-            display: inline-flex;
-            align-items: center;
-            box-shadow: var(--shadow);
-            margin-bottom: 40px;
-            animation: fadeInUp 0.8s ease-out 0.4s both;
-        }
-
-        .countdown i {
-            margin-right: 10px;
-            color: var(--secondary);
-        }
-
-        .countdown-text {
-            font-weight: 500;
-        }
-
-        /* Prizes Section */
-        .prizes-section {
-            padding: 60px 0;
-            background-color: white;
-            position: relative;
-        }
-
-        .section-title {
-            text-align: center;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2rem;
-            margin-bottom: 50px;
-            color: var(--primary);
-            position: relative;
-            display: inline-block;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            border-radius: 3px;
-        }
-
-        .prizes-container {
-            position: relative;
-            height: 400px;
-            margin: 0 auto;
-            max-width: 900px;
-            perspective: 1000px;
-        }
-
-        .prize-card {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            margin: auto;
-            width: 90%;
-            max-width: 600px;
-            height: 350px;
-            background: white;
-            border-radius: 20px;
-            box-shadow: var(--shadow-lg);
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            opacity: 0;
-            transform: translateX(100%) rotateY(90deg);
-            z-index: 1;
-            overflow: hidden;
-        }
-
-        .prize-card.active {
-            opacity: 1;
-            transform: translateX(0) rotateY(0);
-            z-index: 2;
-        }
-
-        .prize-card.prev {
-            transform: translateX(-100%) rotateY(-90deg);
-            opacity: 0;
-        }
-
-        .prize-image {
-            width: 150px;
-            height: 150px;
-            object-fit: contain;
-            margin-bottom: 20px;
-            transition: transform 0.3s ease;
-        }
-
-        .prize-card:hover .prize-image {
-            transform: scale(1.1);
-        }
-
-        .prize-name {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: var(--primary);
-        }
-
-        .prize-value {
-            font-weight: 500;
-            color: var(--secondary);
-            margin-bottom: 15px;
-        }
-
-        .prize-description {
-            text-align: center;
-            color: var(--dark);
-            opacity: 0.8;
-            max-width: 500px;
-        }
-
-        .prize-dots {
-            display: flex;
-            justify-content: center;
-            margin-top: 30px;
-        }
-
-        .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: var(--gray);
-            margin: 0 5px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .dot.active {
-            background-color: var(--primary);
-            transform: scale(1.2);
-        }
-
-        /* Form Section */
-        .form-section {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #f5f7fa 0%, #f9f9ff 100%);
-            position: relative;
-        }
-
-        .form-container {
-            background-color: white;
-            border-radius: 20px;
-            box-shadow: var(--shadow-lg);
-            padding: 40px;
-            max-width: 600px;
-            margin: 0 auto;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .form-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 8px;
-            height: 100%;
-            background: linear-gradient(to bottom, var(--primary), var(--secondary));
-        }
-
-        .form-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.8rem;
-            margin-bottom: 30px;
-            color: var(--primary);
-            text-align: center;
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-            position: relative;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: var(--dark);
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 15px 20px;
-            border: 2px solid var(--gray);
-            border-radius: 10px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .form-control:focus {
-            border-color: var(--primary);
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2);
-        }
-
-        .btn {
-            display: inline-block;
-            background: linear-gradient(to right, var(--primary), var(--primary-dark));
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            font-size: 1.1rem;
-            font-weight: 500;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Poppins', sans-serif;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(108, 99, 255, 0.4);
-        }
-
-        .btn:active {
-            transform: translateY(1px);
-        }
-
-        .btn-block {
-            display: block;
-            width: 100%;
-        }
-
-        .form-note {
-            font-size: 0.85rem;
-            color: var(--dark);
-            opacity: 0.7;
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 30px 0;
-            text-align: center;
-        }
-
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .footer-logo {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-
-        .footer-links {
-            display: flex;
-            margin-bottom: 20px;
-        }
-
-        .footer-link {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            transition: color 0.3s ease;
-        }
-
-        .footer-link:hover {
-            color: var(--secondary);
-        }
-
-        .copyright {
-            font-size: 0.9rem;
-            opacity: 0.7;
-        }
-
-        /* Success Message */
-        .success-message {
-            display: none;
-            text-align: center;
-            padding: 40px;
-        }
-
-        .success-message i {
-            font-size: 4rem;
-            color: var(--success);
-            margin-bottom: 20px;
-        }
-
-        .success-message h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: var(--success);
-        }
-
-        .success-message p {
-            margin-bottom: 25px;
-            font-size: 1.1rem;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-
-        .pulse {
-            animation: pulse 2s infinite;
-        }
-
-        /* Responsive Design */
+        
         @media (max-width: 768px) {
-            .hero h1 {
+            h1 {
                 font-size: 2rem;
             }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .prizes-container {
-                height: 350px;
-            }
-            
-            .prize-card {
-                height: 300px;
-                padding: 20px;
-            }
-            
-            .prize-name {
-                font-size: 1.3rem;
-            }
-            
-            .form-container {
-                padding: 30px 20px;
-            }
-            
-            .form-title {
-                font-size: 1.5rem;
-            }
         }
-
-        @media (max-width: 480px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .logo {
-                margin-bottom: 10px;
-            }
-            
-            .hero {
-                padding: 60px 0 30px;
-            }
-            
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-            
-            .countdown {
-                padding: 10px 20px;
-                font-size: 0.9rem;
-            }
-            
-            .prizes-container {
-                height: 320px;
-            }
-            
-            .prize-card {
-                height: 280px;
-            }
-            
-            .prize-image {
-                width: 120px;
-                height: 120px;
-            }
-            
-            .section-title {
-                font-size: 1.5rem;
-            }
-            
-            .btn {
-                padding: 12px 25px;
-                font-size: 1rem;
-            }
+        
+        /* Section cadeaux */
+        .gifts-section {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            text-align: center;
+        }
+        
+        .gifts-container {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .gift {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            transform: translateX(100%);
+        }
+        
+        .gift.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .gift.exit {
+            transform: translateX(-100%);
+        }
+        
+        .gift img {
+            max-width: 200px;
+            max-height: 200px;
+            margin-bottom: 1.5rem;
+            object-fit: contain;
+        }
+        
+        .gift h3 {
+            font-size: 1.8rem;
+            color: #ff7e5f;
+            margin-bottom: 0.5rem;
+        }
+        
+        .gift p {
+            font-size: 1.1rem;
+            max-width: 600px;
+        }
+        
+        /* Bouton CTA */
+        .cta-section {
+            text-align: center;
+            padding: 0 1rem 3rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(90deg, #ff7e5f, #feb47b);
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(255, 126, 95, 0.4);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 126, 95, 0.6);
+        }
+        
+        .cta-button:active {
+            transform: translateY(1px);
+        }
+        
+        .subtext {
+            margin-top: 1.5rem;
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Points indicateurs */
+        .indicators {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+        
+        .indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ccc;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .indicator.active {
+            background: #ff7e5f;
+        }
+        
+        /* Pied de page */
+        footer {
+            margin-top: auto;
+            text-align: center;
+            padding: 1.5rem;
+            background: #333;
+            color: white;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="container header-content">
-            <div class="logo">LuckyDraw</div>
-            <div class="tagline">Votre chance de gagner des cadeaux exceptionnels</div>
-        </div>
+        <h1>Gagnez l'un des 5 cadeaux exclusifs !</h1>
+        <p>Tentez votre chance dès maintenant</p>
     </header>
-
-    <section class="hero">
-        <div class="container">
-            <h1>Participez à notre tirage au sort exceptionnel !</h1>
-            <p>Inscrivez-vous dès maintenant pour tenter de remporter l'un de nos fabuleux cadeaux. Le tirage aura lieu dans :</p>
-            
-            <div class="countdown">
-                <i>⏱️</i>
-                <span class="countdown-text">7 jours, 12 heures, 30 minutes</span>
-            </div>
-        </div>
-    </section>
-
-    <section class="prizes-section">
-        <div class="container">
-            <h2 class="section-title">Les cadeaux à gagner</h2>
-            
-            <div class="prizes-container">
-                <!-- Carte cadeau -->
-                <div class="prize-card active">
-                    <img src="gift-card.png" alt="Carte cadeau" class="prize-image">
-                    <h3 class="prize-name">Carte cadeau</h3>
-                    <div class="prize-value">10€ à 20€</div>
-                    <p class="prize-description">Choisissez entre McDonald's, KFC, Amazon ou AliExpress. Le montant varie entre 10€ et 20€ selon votre chance !</p>
-                </div>
-                
-                <!-- iPhone -->
-                <div class="prize-card">
-                    <img src="iphone.png" alt="iPhone 16" class="prize-image">
-                    <h3 class="prize-name">iPhone 16</h3>
-                    <div class="prize-value">Valeur: 1200€</div>
-                    <p class="prize-description">Le tout dernier smartphone d'Apple avec écran Super Retina XDR, puissante puce A18 et système photo révolutionnaire.</p>
-                </div>
-                
-                <!-- Abonnement -->
-                <div class="prize-card">
-                    <img src="subscription.png" alt="Abonnement 1 mois" class="prize-image">
-                    <h3 class="prize-name">Abonnement Premium</h3>
-                    <div class="prize-value">1 mois gratuit</div>
-                    <p class="prize-description">Profitez d'un mois d'abonnement gratuit au service de streaming de votre choix : Netflix ou Spotify.</p>
-                </div>
-                
-                <!-- AirPods -->
-                <div class="prize-card">
-                    <img src="airpods.png" alt="AirPods" class="prize-image">
-                    <h3 class="prize-name">AirPods</h3>
-                    <div class="prize-value">Valeur: 180€</div>
-                    <p class="prize-description">Écouteurs sans fil avec qualité sonore exceptionnelle, réduction active du bruit et jusqu'à 24h d'autonomie.</p>
-                </div>
-                
-                <!-- Drone -->
-                <div class="prize-card">
-                    <img src="drone.png" alt="Mini drone" class="prize-image">
-                    <h3 class="prize-name">Mini drone avec caméra</h3>
-                    <div class="prize-value">Valeur: 150€</div>
-                    <p class="prize-description">Drone compact avec caméra HD, stabilisation d'image et contrôle facile via smartphone. Parfait pour débuter.</p>
-                </div>
+    
+    <section class="gifts-section">
+        <h2>Nos cadeaux à gagner</h2>
+        <div class="gifts-container">
+            <!-- Cadeau 1 - iPhone 16 -->
+            <div class="gift active" data-index="0">
+                <!-- Remplacez image1.png par votre image -->
+                <img src="image1.png" alt="iPhone 16">
+                <h3>iPhone 16</h3>
+                <p>Le tout nouveau smartphone d'Apple avec des fonctionnalités révolutionnaires.</p>
             </div>
             
-            <div class="prize-dots">
-                <div class="dot active" data-index="0"></div>
-                <div class="dot" data-index="1"></div>
-                <div class="dot" data-index="2"></div>
-                <div class="dot" data-index="3"></div>
-                <div class="dot" data-index="4"></div>
+            <!-- Cadeau 2 - Carte cadeau fast-food -->
+            <div class="gift" data-index="1">
+                <!-- Remplacez image2.png par votre image -->
+                <img src="image2.png" alt="Carte cadeau McDonald's ou KFC">
+                <h3>Carte cadeau McDonald's ou KFC (10 à 20 €)</h3>
+                <p>Profitez d'un bon repas offert dans votre fast-food préféré.</p>
+            </div>
+            
+            <!-- Cadeau 3 - Abonnement streaming -->
+            <div class="gift" data-index="2">
+                <!-- Remplacez image3.png par votre image -->
+                <img src="image3.png" alt="Abonnement Netflix ou Spotify">
+                <h3>1 mois d'abonnement gratuit à Netflix ou Spotify</h3>
+                <p>Divertissement ou musique illimitée pendant un mois.</p>
+            </div>
+            
+            <!-- Cadeau 4 - Écouteurs -->
+            <div class="gift" data-index="3">
+                <!-- Remplacez image4.png par votre image -->
+                <img src="image4.png" alt="AirPods ou écouteurs Bluetooth">
+                <h3>AirPods ou écouteurs Bluetooth sans fil</h3>
+                <p>Écoutez votre musique en toute liberté avec ces écouteurs haut de gamme.</p>
+            </div>
+            
+            <!-- Cadeau 5 - Carte cadeau e-commerce -->
+            <div class="gift" data-index="4">
+                <!-- Remplacez image5.png par votre image -->
+                <img src="image5.png" alt="Carte cadeau Amazon ou AliExpress">
+                <h3>Carte cadeau Amazon ou AliExpress (5 à 20 €)</h3>
+                <p>Dépensez cette somme sur les plateformes de e-commerce leaders.</p>
+            </div>
+            
+            <!-- Cadeau 6 - Mini drone -->
+            <div class="gift" data-index="5">
+                <!-- Remplacez image6.png par votre image -->
+                <img src="image6.png" alt="Mini drone caméra">
+                <h3>Mini drone caméra</h3>
+                <p>Capturez des vues aériennes avec ce drone compact et facile à utiliser.</p>
             </div>
         </div>
-    </section>
-
-    <section class="form-section">
-        <div class="container">
-            <div class="form-container">
-                <div id="registration-form">
-                    <h2 class="form-title">Inscrivez-vous maintenant !</h2>
-                    <form id="draw-form">
-                        <div class="form-group">
-                            <label for="name">Nom complet</label>
-                            <input type="text" id="name" class="form-control" placeholder="Votre nom" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Adresse email</label>
-                            <input type="email" id="email" class="form-control" placeholder="votre@email.com" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Téléphone (facultatif)</label>
-                            <input type="tel" id="phone" class="form-control" placeholder="06 12 34 56 78">
-                        </div>
-                        <button type="submit" class="btn btn-block pulse">Je participe au tirage !</button>
-                        <p class="form-note">En vous inscrivant, vous acceptez nos conditions générales. Nous ne partagerons jamais vos informations.</p>
-                    </form>
-                </div>
-                
-                <div class="success-message">
-                    <i>🎉</i>
-                    <h3>Félicitations !</h3>
-                    <p>Votre inscription a bien été prise en compte. Vous êtes maintenant participant au tirage au sort.</p>
-                    <p>Nous vous contacterons par email si vous gagnez. Bonne chance !</p>
-                    <button class="btn" onclick="location.reload()">Fermer</button>
-                </div>
-            </div>
+        
+        <div class="indicators">
+            <div class="indicator active" data-index="0"></div>
+            <div class="indicator" data-index="1"></div>
+            <div class="indicator" data-index="2"></div>
+            <div class="indicator" data-index="3"></div>
+            <div class="indicator" data-index="4"></div>
+            <div class="indicator" data-index="5"></div>
         </div>
     </section>
-
+    
+    <section class="cta-section">
+        <button class="cta-button">S'inscrire pour tenter de gagner</button>
+        <p class="subtext">Inscris-toi et entre dans le tirage au sort. Des gagnants chaque semaine !</p>
+    </section>
+    
     <footer>
-        <div class="container footer-content">
-            <div class="footer-logo">LuckyDraw</div>
-            <div class="footer-links">
-                <a href="#" class="footer-link">Conditions</a>
-                <a href="#" class="footer-link">Confidentialité</a>
-                <a href="#" class="footer-link">Contact</a>
-            </div>
-            <div class="copyright">© 2023 LuckyDraw. Tous droits réservés.</div>
-        </div>
+        <p>© 2023 Concours cadeaux. Tous droits réservés.</p>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Carousel des cadeaux
-            const prizeCards = document.querySelectorAll('.prize-card');
-            const dots = document.querySelectorAll('.dot');
+            const gifts = document.querySelectorAll('.gift');
+            const indicators = document.querySelectorAll('.indicator');
             let currentIndex = 0;
-            let interval;
+            const intervalTime = 2000; // 2 secondes
+            let slideInterval;
             
-            function showPrize(index) {
-                prizeCards.forEach(card => card.classList.remove('active', 'prev'));
-                dots.forEach(dot => dot.classList.remove('active'));
+            // Fonction pour passer au cadeau suivant
+            function nextGift() {
+                // Retirer les classes actives
+                gifts[currentIndex].classList.remove('active');
+                gifts[currentIndex].classList.add('exit');
+                indicators[currentIndex].classList.remove('active');
                 
-                if (index >= prizeCards.length) index = 0;
-                if (index < 0) index = prizeCards.length - 1;
+                // Incrémenter l'index
+                currentIndex = (currentIndex + 1) % gifts.length;
                 
-                prizeCards[currentIndex].classList.add('prev');
-                prizeCards[index].classList.add('active');
-                dots[index].classList.add('active');
-                
-                currentIndex = index;
+                // Ajouter les classes actives
+                setTimeout(() => {
+                    gifts.forEach(gift => gift.classList.remove('exit'));
+                    gifts[currentIndex].classList.add('active');
+                    indicators[currentIndex].classList.add('active');
+                }, 1000);
             }
             
-            function nextPrize() {
-                showPrize(currentIndex + 1);
+            // Démarrer l'automatisation
+            function startInterval() {
+                slideInterval = setInterval(nextGift, intervalTime);
             }
             
-            function startCarousel() {
-                interval = setInterval(nextPrize, 3000);
-            }
-            
-            function stopCarousel() {
-                clearInterval(interval);
-            }
-            
-            // Gestion des clics sur les dots
-            dots.forEach((dot, index) => {
-                dot.addEventListener('click', () => {
-                    stopCarousel();
-                    showPrize(index);
-                    startCarousel();
-                });
-            });
-            
-            // Démarrer le carousel
-            startCarousel();
-            
-            // Gestion du formulaire
-            const form = document.getElementById('draw-form');
-            const registrationForm = document.getElementById('registration-form');
-            const successMessage = document.querySelector('.success-message');
-            
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Ici, vous devriez normalement envoyer les données à un serveur
-                // Pour cet exemple, nous simulons simplement une soumission réussie
-                
-                // Masquer le formulaire et afficher le message de succès
-                registrationForm.style.display = 'none';
-                successMessage.style.display = 'block';
-                
-                // Vous pouvez ajouter ici le code pour envoyer les données à votre backend
-                // const formData = {
-                //     name: document.getElementById('name').value,
-                //     email: document.getElementById('email').value,
-                //     phone: document.getElementById('phone').value
-                // };
-                // console.log('Données du formulaire:', formData);
-            });
-            
-            // Compte à rebours simulé
-            function updateCountdown() {
-                const countdownElement = document.querySelector('.countdown-text');
-                let days = 7, hours = 12, minutes = 30;
-                
-                setInterval(() => {
-                    minutes--;
-                    if (minutes < 0) {
-                        minutes = 59;
-                        hours--;
-                        if (hours < 0) {
-                            hours = 23;
-                            days--;
-                        }
-                    }
+            // Gestion du clic sur les indicateurs
+            indicators.forEach(indicator => {
+                indicator.addEventListener('click', function() {
+                    clearInterval(slideInterval);
                     
-                    countdownElement.textContent = `${days} jours, ${hours} heures, ${minutes} minutes`;
-                }, 60000); // Mise à jour toutes les minutes
-            }
-            
-            updateCountdown();
-            
-            // Animation au scroll
-            const animateOnScroll = () => {
-                const elements = document.querySelectorAll('.prizes-section, .form-section');
-                
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.style.opacity = 1;
-                            entry.target.style.transform = 'translateY(0)';
-                        }
-                    });
-                }, { threshold: 0.1 });
-                
-                elements.forEach(el => {
-                    el.style.opacity = 0;
-                    el.style.transform = 'translateY(20px)';
-                    el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-                    observer.observe(el);
+                    const targetIndex = parseInt(this.getAttribute('data-index'));
+                    
+                    // Retirer les classes actives
+                    gifts[currentIndex].classList.remove('active');
+                    gifts[currentIndex].classList.add('exit');
+                    indicators[currentIndex].classList.remove('active');
+                    
+                    currentIndex = targetIndex;
+                    
+                    // Ajouter les classes actives
+                    setTimeout(() => {
+                        gifts.forEach(gift => gift.classList.remove('exit'));
+                        gifts[currentIndex].classList.add('active');
+                        indicators[currentIndex].classList.add('active');
+                    }, 1000);
+                    
+                    // Redémarrer l'intervalle
+                    startInterval();
                 });
-            };
+            });
             
-            animateOnScroll();
+            // Démarrer le défilement automatique
+            startInterval();
+            
+            // Animation du bouton CTA au survol
+            const ctaButton = document.querySelector('.cta-button');
+            ctaButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                // Animation de "clic" pour le feedback utilisateur
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                    alert('Merci pour votre intérêt ! Le concours sera bientôt disponible.');
+                }, 150);
+            });
         });
     </script>
 </body>
